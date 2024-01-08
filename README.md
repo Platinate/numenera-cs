@@ -2,6 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Using this app
+
+Just open : [https://platinate.github.io/numenera-cs](https://platinate.github.io/numenera-cs)
+
 ## Available Scripts
 
 In the project directory, you can run:
