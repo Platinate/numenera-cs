@@ -35,7 +35,7 @@ const AbilityList : React.FC<IProps> = ({abilities,onAbilityAdd,onAbilitiesUpdat
 
     return (
         <div className="AbilityList">
-            <Button type="primary" onClick={onAbilityAdd} style={{marginBottom: 10}}>Ajouter aptitude</Button>
+            <Button type="primary" onClick={onAbilityAdd} style={{marginBottom: 16}}>Ajouter aptitude</Button>
             {abilities.map(ab => <AbilityItem key={ab.id} ability={ab} onAbilityDelete={handleOnAbilityDelete} onAbilityNameChange={handleOnAbilityNameChange} onAbilityDescriptionChange={handleOnAbilityDescriptionChange}/>)}
         </div>
     );

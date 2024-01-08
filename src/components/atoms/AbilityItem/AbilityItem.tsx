@@ -15,7 +15,7 @@ interface IProps {
 const AbilityItem: React.FC<IProps> = ({ ability, onAbilityDescriptionChange, onAbilityNameChange, onAbilityDelete }) => {
     return (<div className="AbilityItem">
         <Row gutter={16}>
-            <Col xs={3}>
+            <Col xs={3} style={{ display: "flex", justifyContent: "center" }}>
                 <Button icon={<DeleteOutlined />} onClick={() => onAbilityDelete(ability.id)} danger />
             </Col>
             <Col xs={21} style={{ marginBottom: 10 }}>

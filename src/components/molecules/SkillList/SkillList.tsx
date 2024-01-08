@@ -38,7 +38,7 @@ const SkillList: React.FC<IProps> = ({skills, onSkillAdd, onSkillsUpdate}) => {
 
     return (
         <div className="SkillList">
-            <Button type="primary" onClick={onSkillAdd} style={{marginBottom: 10}}>Ajouter compétence</Button>
+            <Button type="primary" onClick={onSkillAdd} style={{marginBottom: 16}}>Ajouter compétence</Button>
             {skills.map(skill => <SkillItem key={skill.id} skill={skill} onSkillDelete={handleOnSkillDelete} onSkillNameChange={handleOnSkillNameChange} onSkillTrainingChange={handleOnSkillTrainingChange}/>)}
         </div>
     );

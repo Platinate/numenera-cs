@@ -2,22 +2,25 @@ import React from "react";
 import ICharacter from "../../../models/character";
 
 import "./CharacterSheet.css";
-import { Col, Divider, Input, InputNumber, Row, Tabs } from "antd";
+import { Col, Collapse, Divider, Input, InputNumber, Row, Tabs } from "antd";
 import Pool from "../../molecules/Pool/Pool";
 import SkillList from "../../molecules/SkillList/SkillList";
 import ISkill, { Skill } from "../../../models/skill";
-import { DeploymentUnitOutlined, StarOutlined } from "@ant-design/icons";
+import { BarsOutlined, DeploymentUnitOutlined, FormOutlined, StarOutlined } from "@ant-design/icons";
 import AbilityList from "../../molecules/AbilityList/AbilityList";
 import IAbility, { Ability } from "../../../models/ability";
+import WeaponList from "../../molecules/WeaponList/WeaponList";
+import IWeapon, { Weapon } from "../../../models/weapon";
 
 interface IProps {
     character: ICharacter;
     onValueChange: (name: string, value: any) => void;
     onSkillListChange: (newList: ISkill[]) => void;
     onAbilityListChange: (newList: IAbility[]) => void;
+    onWeaponListChange: (newList: IWeapon[]) => void;
 }
 
-const CharacterSheet: React.FC<IProps> = ({ character, onValueChange, onSkillListChange, onAbilityListChange }) => {
+const CharacterSheet: React.FC<IProps> = ({ character, onValueChange, onSkillListChange, onAbilityListChange, onWeaponListChange }) => {
 
     const handleOnChange = (evt: any) => {
         onValueChange(evt.target.name, evt.target.value);
@@ -46,6 +49,15 @@ const CharacterSheet: React.FC<IProps> = ({ character, onValueChange, onSkillLis
         onAbilityListChange(abilities);
     }
 
+    const handleOnWeaponAdd = () => {
+        character.weapons.push(new Weapon());
+        onWeaponListChange(character.weapons);
+    }
+
+    const handleOnWeaponUpdate = (weapons: IWeapon[]) => {
+        onWeaponListChange(weapons);
+    }
+
     return (
         <div className="CharacterSheet">
             <Row gutter={16} align="middle">
@@ -72,35 +84,34 @@ const CharacterSheet: React.FC<IProps> = ({ character, onValueChange, onSkillLis
                     <Input name="focus" value={character.focus} placeholder="Focus" />
                 </Col>
             </Row>
-            <Divider />
             <Row gutter={16}>
                 <Col xs={8}>
-                    <h4 style={{textAlign:"center"}}>RANG</h4>
-                    <InputNumber style={{width:"100%"}} value={character.tier} defaultValue={0} min={0} name="tier" onChange={(v) => onValueChange("tier",v)}/>
+                    <h4 style={{ textAlign: "center" }}>RANG</h4>
+                    <InputNumber style={{ width: "100%" }} value={character.tier} defaultValue={0} min={0} name="tier" onChange={(v) => onValueChange("tier", v)} />
                 </Col>
                 <Col xs={8}>
-                    <h4 style={{textAlign:"center"}}>EFFORT</h4>
-                    <InputNumber style={{width:"100%"}} value={character.effort} defaultValue={0} min={0} name="effort" onChange={(v) => onValueChange("effort",v)}/>
+                    <h4 style={{ textAlign: "center" }}>EFFORT</h4>
+                    <InputNumber style={{ width: "100%" }} value={character.effort} defaultValue={0} min={0} name="effort" onChange={(v) => onValueChange("effort", v)} />
 
                 </Col>
                 <Col xs={8}>
-                    <h4 style={{textAlign:"center"}}>XP</h4>
-                    <InputNumber style={{width:"100%"}} value={character.xp} defaultValue={0} min={0} name="xp" onChange={(v) => onValueChange("xp",v)}/>
+                    <h4 style={{ textAlign: "center" }}>XP</h4>
+                    <InputNumber style={{ width: "100%" }} value={character.xp} defaultValue={0} min={0} name="xp" onChange={(v) => onValueChange("xp", v)} />
                 </Col>
             </Row>
             <Divider />
             <Row gutter={16} align="middle">
-                <Col xs={24}>
+                <Col xs={24} sm={8}>
                     <Pool name="PUISSANCE" onMaxPoolChange={(v) => handleOnPoolChange("mightPoolMaximum", v)} onEdgePoolChange={(v) => handleOnPoolChange("mightPoolEdge", v)} onCurrentPoolChange={(v) => handleOnPoolChange("mightPoolCurrent", v)} current={character.mightPoolCurrent} max={character.mightPoolMaximum} min={character.mightPoolMinimum} edge={character.mightPoolEdge} />
                 </Col>
-                <Col xs={24}  >
+                <Col xs={24} sm={8} >
                     <Pool name="CÉLÉRITÉ" onMaxPoolChange={(v) => handleOnPoolChange("speedPoolMaximum", v)} onEdgePoolChange={(v) => handleOnPoolChange("speedPoolEdge", v)} onCurrentPoolChange={(v) => handleOnPoolChange("speedPoolCurrent", v)} current={character.speedPoolCurrent} max={character.speedPoolMaximum} min={character.speedPoolMinimum} edge={character.speedPoolEdge} />
                 </Col>
-                <Col xs={24}  >
+                <Col xs={24} sm={8}>
                     <Pool name="INTELLECT" onMaxPoolChange={(v) => handleOnPoolChange("intellectPoolMaximum", v)} onEdgePoolChange={(v) => handleOnPoolChange("intellectPoolEdge", v)} onCurrentPoolChange={(v) => handleOnPoolChange("intellectPoolCurrent", v)} current={character.intellectPoolCurrent} max={character.intellectPoolMaximum} min={character.intellectPoolMinimum} edge={character.intellectPoolEdge} />
                 </Col>
             </Row>
-            <Tabs defaultActiveKey="1" centered type="editable-card" style={{ marginTop: 10 }} hideAdd items={[
+            <Tabs defaultActiveKey="1" style={{ marginTop: 10 }} hideAdd items={[
                 {
                     key: '1',
                     label: 'Compétences',
@@ -117,15 +128,38 @@ const CharacterSheet: React.FC<IProps> = ({ character, onValueChange, onSkillLis
                 },
                 {
                     key: '3',
-                    label: 'Inventaire',
+                    label: 'Combat',
                     closable: false,
-                    children: 'Content of Tab Pane 3',
+                    children: 
+                    <div>
+                        <Row>
+
+                        </Row>
+                        <Row>
+                            <Col xs={6}></Col>
+                            <Col xs={6}></Col>
+                            <Col xs={6}></Col>
+                            <Col xs={6}></Col>
+                        </Row>
+                        <WeaponList weapons={character.weapons} onWeaponAdd={handleOnWeaponAdd} onWeaponsUpdate={handleOnWeaponUpdate} />
+                    </div>,
+                    icon: <BarsOutlined />
                 },
                 {
                     key: '4',
+                    label: 'Cyphers',
+                    closable: false,
+                    children: 
+                    <div>
+                    </div>,
+                    icon: <BarsOutlined />
+                },
+                {
+                    key: '5',
                     label: 'Notes',
                     closable: false,
-                    children: 'Content of Tab Pane 3',
+                    children: <Input.TextArea value={character.note} name="note" onChange={handleOnChange} />,
+                    icon: <FormOutlined />
                 },
             ]}>
             </Tabs>

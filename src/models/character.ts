@@ -1,6 +1,7 @@
 import IAbility from "./ability";
 import ISkill from "./skill";
 import IPool from "./skill";
+import IWeapon from "./weapon";
 
 export default interface ICharacter {
 
@@ -31,6 +32,9 @@ export default interface ICharacter {
 
     skills: ISkill[];
     abilities: IAbility[];
+    weapons: IWeapon[];
+
+    note:string;
 }
 
 export class Character implements ICharacter {
@@ -56,6 +60,8 @@ export class Character implements ICharacter {
     name: string;
     skills: ISkill[];
     abilities: IAbility[];
+    weapons: IWeapon[];
+    note:string;
 
     /**
      * 
@@ -81,7 +87,9 @@ export class Character implements ICharacter {
         this.intellectPoolMinimum = 0;
         this.intellectPoolEdge = 0;
         this.name = '';
+        this.note = '';
         this.skills = [];
         this.abilities = [];
+        this.weapons = [];
     }
 }

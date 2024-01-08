@@ -23,7 +23,7 @@ const SkillItem: React.FC<IProps> = ({ skill, onSkillNameChange, onSkillTraining
     return (
         <div className="SkillItem">
             <Row gutter={16}>
-                <Col xs={3}>
+                <Col xs={3} style={{display: "flex", justifyContent: "center"}}>
                     <Button icon={<DeleteOutlined />} onClick={() => onSkillDelete(skill.id)} danger />
                 </Col>
                 <Col xs={12}>
