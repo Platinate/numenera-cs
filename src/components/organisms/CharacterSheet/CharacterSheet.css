@@ -1,0 +1,11 @@
+.CharacterSheet {
+    border: 1px solid lightgray;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.33);
+}
+
+.CharacterSheet .ant-input-number input{
+    text-align: center;
+}

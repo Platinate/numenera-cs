@@ -1,0 +1,1 @@
+export type SKILL_LEVEL = "E" | "S" | "I";

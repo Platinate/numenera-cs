@@ -1,0 +1,52 @@
+.Pool {
+  display: grid;
+  gap: 5px;
+  grid-template-areas: "t t" "a a" "b c";
+}
+
+.Pool h4 {
+}
+
+.Pool .pool__title {
+  grid-area: t;
+  width: 100%;
+  height: 20px;
+  margin: 10;
+  text-align: center;
+}
+
+.Pool .pool__current {
+  min-height: 40px;
+  border-radius: 5px;
+  grid-area: a;
+}
+
+.Pool .pool__edge {
+  min-height: 20px;
+  border-radius: 5px;
+  grid-area: b;
+}
+
+.Pool .pool__max {
+  min-height: 20px;
+  
+  border-radius: 5px;
+  grid-area: c;
+}
+
+.Pool .pool__current input {
+  text-align: center !important;
+  height: 40px !important;
+  font-size: 1.4em;
+  font-weight: bold;
+}
+
+.Pool .pool__edge input {
+  text-align: center !important;
+  height: 20px !important;
+}
+
+.Pool .pool__max input {
+  text-align: center !important;
+  height: 20px !important;
+}
