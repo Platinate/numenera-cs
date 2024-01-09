@@ -1,7 +1,8 @@
 import React from "react";
 import IAbility from "../../../models/ability";
 import { Button, Col, Row } from "antd";
-import AbilityItem from "../../atoms/AbilityItem/AbilityItem";
+
+const AbilityItem = React.lazy(() => import("../../atoms/AbilityItem/AbilityItem"))
 
 interface IProps {
   abilities: IAbility[];

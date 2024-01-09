@@ -3,8 +3,9 @@ import ISkill from "../../../models/skill";
 
 import "./SkillList.css";
 import { Button, Col, Row } from "antd";
-import SkillItem from "../../atoms/SkillItem/SkillItem";
 import { SKILL_LEVEL } from "../../../constants/types";
+
+const SkillItem = React.lazy(() => import("../../atoms/SkillItem/SkillItem"))
 
 interface IProps {
   skills: ISkill[];
