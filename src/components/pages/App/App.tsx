@@ -73,7 +73,7 @@ function App() {
 
   const loadCharacter = (data:string) => {
     const characterLoaded =  JSON.parse(data);
-    setCharacter(characterLoaded);
+    setCharacter({...new Character(),...characterLoaded});
     localStorage.setItem("character",data);
   }
 
