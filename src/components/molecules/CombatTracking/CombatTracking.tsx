@@ -22,8 +22,8 @@ const CombatTracking: React.FC<IProps> = ({
   return (
     <div className="CombatTracking">
       <Row align={"middle"}>
-        <Col xs={24} md={8}>
-          <span>Repos : </span>
+        <Col xs={24} md={8} style={{display: "flex", justifyContent: "space-between"}}>
+          <span>Repos : 1D6 + </span>
           <InputNumber name="recoveryBonus" value={character.recoveryBonus} onChange={(v) => onRestChange("recoveryBonus",v)} />
         </Col>
         <Col xs={6} md={4} style={{display: "flex", alignItems: "center"}}>
