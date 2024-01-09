@@ -1,9 +1,12 @@
 import IAbility from "./ability";
+import ICypher from "./cypher";
 import ISkill from "./skill";
 import IPool from "./skill";
 import IWeapon from "./weapon";
 
 export default interface ICharacter {
+    cyphers: ICypher[];
+    cypherLimit: number;
 
     id:number;
 
@@ -14,6 +17,7 @@ export default interface ICharacter {
     tier: number;
     effort: number;
     xp: number;
+    recoveryBonus:number;
 
     mightPoolMaximum: number;
     mightPoolCurrent: number;
@@ -35,6 +39,11 @@ export default interface ICharacter {
     weapons: IWeapon[];
 
     note:string;
+
+    recovery1ActionUsed: boolean;
+    recovery10MinsUsed: boolean;
+    recovery1HourUsed: boolean;
+    recovery10HoursUsed: boolean;
 }
 
 export class Character implements ICharacter {
@@ -45,6 +54,7 @@ export class Character implements ICharacter {
     tier: number;
     effort: number;
     xp: number;
+    recoveryBonus:number;
     mightPoolMaximum: number;
     mightPoolCurrent: number;
     mightPoolMinimum: number;
@@ -61,8 +71,15 @@ export class Character implements ICharacter {
     skills: ISkill[];
     abilities: IAbility[];
     weapons: IWeapon[];
+    cyphers: ICypher[];
     note:string;
 
+    recovery1ActionUsed: boolean;
+    recovery10MinsUsed: boolean;
+    recovery1HourUsed: boolean;
+    recovery10HoursUsed: boolean;
+
+    cypherLimit: number;
     /**
      * 
      */
@@ -86,10 +103,19 @@ export class Character implements ICharacter {
         this.intellectPoolCurrent = 0;
         this.intellectPoolMinimum = 0;
         this.intellectPoolEdge = 0;
+        this.recoveryBonus = 0;
         this.name = '';
         this.note = '';
         this.skills = [];
         this.abilities = [];
         this.weapons = [];
+        this.cyphers= [];
+
+        this.recovery1ActionUsed = false;
+        this.recovery10MinsUsed = false;
+        this.recovery1HourUsed = false;
+        this.recovery10HoursUsed = false;
+
+        this.cypherLimit = 0;
     }
 }

@@ -33,7 +33,7 @@ const SkillItem: React.FC<IProps> = ({ skill, onSkillNameChange, onSkillTraining
                 <Col xs={9}>
                     <Select
                         defaultValue={skill.skillLevel}
-                        style={{ width: 120 }}
+                        style={{ width: '100%' }}
                         onChange={(v) => onSkillTrainingChange(skill.id, v as SKILL_LEVEL)}
                         options={[
                             { value: 'E', label: 'Entrainé' },

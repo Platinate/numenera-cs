@@ -1,0 +1,82 @@
+import React from "react";
+import ICypher from "../../../models/cypher";
+import { Button, Col, InputNumber, Row } from "antd";
+import CypherItem from "../../atoms/CypherItem/CypherItem";
+
+interface IProps {
+  cypherLimit: number;
+  cyphers: ICypher[];
+  onCypherAdd: () => void;
+  onCyphersUpdate: (cyphers: ICypher[]) => void;
+}
+
+const CypherList: React.FC<IProps> = ({
+  cyphers,
+  cypherLimit,
+  onCypherAdd,
+  onCyphersUpdate,
+}) => {
+  const handleOnCypherNameChange = (id: number, value: string) => {
+    const cypherIndex = cyphers.findIndex((s) => s.id === id);
+    if (cypherIndex > -1) {
+      cyphers[cypherIndex].name = value;
+    }
+    onCyphersUpdate(cyphers);
+  };
+  const handleOnCypherLevelChange = (id: number, value: number) => {
+    const cypherIndex = cyphers.findIndex((s) => s.id === id);
+    if (cypherIndex > -1) {
+      cyphers[cypherIndex].level = value;
+    }
+    onCyphersUpdate(cyphers);
+  };
+
+  const handleOnCypherDescriptionChange = (id: number, value: string) => {
+    const cypherIndex = cyphers.findIndex((s) => s.id === id);
+    if (cypherIndex > -1) {
+      cyphers[cypherIndex].description = value;
+    }
+    onCyphersUpdate(cyphers);
+  };
+
+  const handleOnCypherDelete = (id: number) => {
+    const list = cyphers.filter((a) => a.id !== id);
+    onCyphersUpdate(list);
+  };
+
+  return (
+    <div className="CypherList">
+      <Row>
+        <Col xs={12} md={10} lg={4}>
+          <Button
+            type="primary"
+            onClick={onCypherAdd}
+            style={{ marginBottom: 16 }}
+          >
+            Ajouter cypher
+          </Button>
+        </Col>
+        <Col xs={12} md={14} lg={20}>
+          <span>Limite : </span>
+          <InputNumber name="cypherLimit" value={cypherLimit} />
+        </Col>
+      </Row>
+      <Row gutter={16}>
+        {cyphers.map((ab) => (
+          <Col xs={24}>
+            <CypherItem
+              key={ab.id}
+              cypher={ab}
+              onCypherDelete={handleOnCypherDelete}
+              onCypherNameChange={handleOnCypherNameChange}
+              onCypherLevelChange={handleOnCypherLevelChange}
+              onCypherDescriptionChange={handleOnCypherDescriptionChange}
+            />
+          </Col>
+        ))}
+      </Row>
+    </div>
+  );
+};
+
+export default CypherList;

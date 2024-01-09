@@ -11,6 +11,9 @@ import AbilityList from "../../molecules/AbilityList/AbilityList";
 import IAbility, { Ability } from "../../../models/ability";
 import WeaponList from "../../molecules/WeaponList/WeaponList";
 import IWeapon, { Weapon } from "../../../models/weapon";
+import CombatTracking from "../../molecules/CombatTracking/CombatTracking";
+import CypherList from "../../molecules/CypherList/CypherList";
+import ICypher, { Cypher } from "../../../models/cypher";
 
 interface IProps {
     character: ICharacter;
@@ -18,9 +21,10 @@ interface IProps {
     onSkillListChange: (newList: ISkill[]) => void;
     onAbilityListChange: (newList: IAbility[]) => void;
     onWeaponListChange: (newList: IWeapon[]) => void;
+    onCypherListChange: (newList: ICypher[]) => void;
 }
 
-const CharacterSheet: React.FC<IProps> = ({ character, onValueChange, onSkillListChange, onAbilityListChange, onWeaponListChange }) => {
+const CharacterSheet: React.FC<IProps> = ({ character, onValueChange, onSkillListChange, onAbilityListChange, onWeaponListChange, onCypherListChange }) => {
 
     const handleOnChange = (evt: any) => {
         onValueChange(evt.target.name, evt.target.value);
@@ -56,6 +60,15 @@ const CharacterSheet: React.FC<IProps> = ({ character, onValueChange, onSkillLis
 
     const handleOnWeaponUpdate = (weapons: IWeapon[]) => {
         onWeaponListChange(weapons);
+    }
+
+    const handleOnCypherAdd = () => {
+        character.cyphers.push(new Cypher());
+        onCypherListChange(character.cyphers);
+    }
+
+    const handleOnCypherUpdate = (cyphers: ICypher[]) => {
+        onCypherListChange(cyphers);
     }
 
     return (
@@ -130,28 +143,18 @@ const CharacterSheet: React.FC<IProps> = ({ character, onValueChange, onSkillLis
                     key: '3',
                     label: 'Combat',
                     closable: false,
-                    children: 
-                    <div>
-                        <Row>
-
-                        </Row>
-                        <Row>
-                            <Col xs={6}></Col>
-                            <Col xs={6}></Col>
-                            <Col xs={6}></Col>
-                            <Col xs={6}></Col>
-                        </Row>
-                        <WeaponList weapons={character.weapons} onWeaponAdd={handleOnWeaponAdd} onWeaponsUpdate={handleOnWeaponUpdate} />
-                    </div>,
+                    children: <CombatTracking character={character} handleOnWeaponAdd={handleOnWeaponAdd} handleOnWeaponsUpdate={handleOnWeaponUpdate} onRestChange={onValueChange}/>,
                     icon: <BarsOutlined />
                 },
                 {
                     key: '4',
                     label: 'Cyphers',
                     closable: false,
-                    children: 
-                    <div>
-                    </div>,
+                    children: <Row gutter={16}>
+                        <Col xs={24} md={12}>
+                            <CypherList cypherLimit={character.cypherLimit} cyphers={character.cyphers} onCypherAdd={handleOnCypherAdd} onCyphersUpdate={handleOnCypherUpdate} />
+                        </Col>
+                    </Row>,
                     icon: <BarsOutlined />
                 },
                 {

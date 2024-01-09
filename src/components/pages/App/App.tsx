@@ -7,6 +7,7 @@ import IAbility from '../../../models/ability';
 import { Button } from 'antd';
 import JsonFileLoader from '../../atoms/JsonFileLoader/JsonFileLoader';
 import IWeapon from '../../../models/weapon';
+import ICypher from '../../../models/cypher';
 
 function App() {
 
@@ -51,6 +52,14 @@ function App() {
     localStorage.setItem("character", JSON.stringify(c));
   }
 
+  const handleOnCypherListChange = (cyphers: ICypher[]) => {
+    let c = character;
+    c = { ...c, cyphers: cyphers };
+    c.id = Math.ceil(Math.random()*100);
+    setCharacter(c);
+    localStorage.setItem("character", JSON.stringify(c));
+  }
+
   const exportCharacter = () => {
     const jsonString = `data:text/json;chatset=utf-8,${encodeURIComponent(
       JSON.stringify(character)
@@ -74,7 +83,7 @@ function App() {
         <Button type="primary" onClick={exportCharacter}>Exporter</Button>
         <JsonFileLoader onDataLoaded={loadCharacter}/>
       </div>
-      <CharacterSheet character={character} onValueChange={handleOnValueChange} onSkillListChange={handleOnSkillListChange} onAbilityListChange={handleOnAbilityListChange} onWeaponListChange={handleOnWeaponListChange} />
+      <CharacterSheet character={character} onValueChange={handleOnValueChange} onSkillListChange={handleOnSkillListChange} onAbilityListChange={handleOnAbilityListChange} onWeaponListChange={handleOnWeaponListChange} onCypherListChange={handleOnCypherListChange} />
     </div>
   );
 }
