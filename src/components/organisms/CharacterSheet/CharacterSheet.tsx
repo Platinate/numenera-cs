@@ -1,6 +1,6 @@
 import React from "react";
 import ICharacter from "../../../models/character";
-import { Col, Divider, Input, InputNumber, Row, Tabs } from "antd";
+import { Col, Collapse, Divider, Input, InputNumber, Row, Tabs } from "antd";
 import Pool from "../../molecules/Pool/Pool";
 import ISkill, { Skill } from "../../../models/skill";
 import {
@@ -17,6 +17,7 @@ import "./CharacterSheet.css";
 import Loading from "../../atoms/Loading/Loading";
 
 const { TabPane } = Tabs;
+const { Panel } = Collapse;
 
 const AbilityList = React.lazy(
   () => import("../../molecules/AbilityList/AbilityList")
@@ -255,15 +256,25 @@ const CharacterSheet: React.FC<IProps> = ({
             />
           </React.Suspense>
         </TabPane>
-        <TabPane tab="Cyphers" key="4" icon={<BarsOutlined />} closable={false}>
-          <React.Suspense fallback={<Loading />}>
-            <CypherList
-              cypherLimit={character.cypherLimit}
-              cyphers={character.cyphers}
-              onCypherAdd={handleOnCypherAdd}
-              onCyphersUpdate={handleOnCypherUpdate}
-            />
-          </React.Suspense>
+        <TabPane
+          tab="Cyphers & Artefacts"
+          key="4"
+          icon={<BarsOutlined />}
+          closable={false}
+        >
+          <Collapse bordered={false}>
+            <Panel key="1" header="Cyphers">
+              <React.Suspense fallback={<Loading />}>
+                <CypherList
+                  cypherLimit={character.cypherLimit}
+                  cyphers={character.cyphers}
+                  onCypherAdd={handleOnCypherAdd}
+                  onCyphersUpdate={handleOnCypherUpdate}
+                />
+              </React.Suspense>
+            </Panel>
+            <Panel key="2" header="Artefacts"></Panel>
+          </Collapse>
         </TabPane>
         <TabPane tab="Notes" key="5" icon={<FormOutlined />} closable={false}>
           <React.Suspense fallback={<Loading />}>

@@ -9,7 +9,9 @@ interface IProps {
   onCyphersUpdate: (cyphers: ICypher[]) => void;
 }
 
-const CypherItem = React.lazy(() => import("../../atoms/CypherItem/CypherItem"));
+const CypherItem = React.lazy(
+  () => import("../../atoms/CypherItem/CypherItem")
+);
 
 const CypherList: React.FC<IProps> = ({
   cyphers,
@@ -47,8 +49,8 @@ const CypherList: React.FC<IProps> = ({
 
   return (
     <div className="CypherList">
-      <Row>
-        <Col xs={12} md={10} lg={4}>
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <div>
           <Button
             type="primary"
             onClick={onCypherAdd}
@@ -56,18 +58,18 @@ const CypherList: React.FC<IProps> = ({
           >
             Ajouter cypher
           </Button>
-        </Col>
-        <Col xs={12} md={14} lg={20}>
+        </div>
+        <div>
           <span>Limite : </span>
           <InputNumber name="cypherLimit" value={cypherLimit} />
-        </Col>
-      </Row>
+        </div>
+      </div>
       <Row gutter={16}>
-        {cyphers.map((ab) => (
-          <Col xs={24}>
+        {cyphers.map((c) => (
+          <Col xs={24} md={12}>
             <CypherItem
-              key={ab.id}
-              cypher={ab}
+              key={c.id}
+              cypher={c}
               onCypherDelete={handleOnCypherDelete}
               onCypherNameChange={handleOnCypherNameChange}
               onCypherLevelChange={handleOnCypherLevelChange}
