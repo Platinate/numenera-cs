@@ -132,7 +132,12 @@ const CharacterSheet: React.FC<IProps> = ({
           <p>QUI</p>
         </Col>
         <Col xs={20}>
-          <Input name="focus" value={character.focus} placeholder="Focus" />
+          <Input
+            name="focus"
+            value={character.focus}
+            placeholder="Focus"
+            onChange={handleOnChange}
+          />
         </Col>
       </Row>
       <Row gutter={16}>
@@ -270,6 +275,7 @@ const CharacterSheet: React.FC<IProps> = ({
                   cyphers={character.cyphers}
                   onCypherAdd={handleOnCypherAdd}
                   onCyphersUpdate={handleOnCypherUpdate}
+                  onValueChange={onValueChange}
                 />
               </React.Suspense>
             </Panel>

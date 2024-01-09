@@ -7,6 +7,7 @@ interface IProps {
   cyphers: ICypher[];
   onCypherAdd: () => void;
   onCyphersUpdate: (cyphers: ICypher[]) => void;
+  onValueChange: (name:string, value:any) => void;
 }
 
 const CypherItem = React.lazy(
@@ -18,6 +19,7 @@ const CypherList: React.FC<IProps> = ({
   cypherLimit,
   onCypherAdd,
   onCyphersUpdate,
+  onValueChange
 }) => {
   const handleOnCypherNameChange = (id: number, value: string) => {
     const cypherIndex = cyphers.findIndex((s) => s.id === id);
@@ -61,7 +63,7 @@ const CypherList: React.FC<IProps> = ({
         </div>
         <div>
           <span>Limite : </span>
-          <InputNumber name="cypherLimit" value={cypherLimit} />
+          <InputNumber name="cypherLimit" value={cypherLimit} onChange={(v) => onValueChange("cypherLimit",v!)} />
         </div>
       </div>
       <Row gutter={16}>
