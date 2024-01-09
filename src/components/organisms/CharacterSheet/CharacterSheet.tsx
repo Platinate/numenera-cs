@@ -137,7 +137,7 @@ const CharacterSheet: React.FC<IProps> = ({
       </Row>
       <Row gutter={16}>
         <Col xs={8}>
-          <h4 style={{ textAlign: "center" }}>RANG</h4>
+          <h4>RANG</h4>
           <InputNumber
             style={{ width: "100%" }}
             value={character.tier}
@@ -148,7 +148,7 @@ const CharacterSheet: React.FC<IProps> = ({
           />
         </Col>
         <Col xs={8}>
-          <h4 style={{ textAlign: "center" }}>EFFORT</h4>
+          <h4>EFFORT</h4>
           <InputNumber
             style={{ width: "100%" }}
             value={character.effort}
@@ -159,7 +159,7 @@ const CharacterSheet: React.FC<IProps> = ({
           />
         </Col>
         <Col xs={8}>
-          <h4 style={{ textAlign: "center" }}>XP</h4>
+          <h4>XP</h4>
           <InputNumber
             style={{ width: "100%" }}
             value={character.xp}
