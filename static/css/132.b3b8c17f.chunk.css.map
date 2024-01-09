@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/132.b3b8c17f.chunk.css","mappings":"AAAA,cACI,sBACJ","sources":["components/atoms/WeaponItem/WeaponItem.css"],"sourcesContent":[".WeaponItem p {\r\n    margin: 7px 0 !important;\r\n}"],"names":[],"sourceRoot":""}
