@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/numenera-cs/static/css/main.1d6ab75f.css",
-    "main.js": "/numenera-cs/static/js/main.394a3086.js",
+    "main.css": "/numenera-cs/static/css/main.f1f1e1c0.css",
+    "main.js": "/numenera-cs/static/js/main.494a0fb2.js",
     "static/js/487.5107c376.chunk.js": "/numenera-cs/static/js/487.5107c376.chunk.js",
     "static/css/722.12962f6b.chunk.css": "/numenera-cs/static/css/722.12962f6b.chunk.css",
-    "static/js/722.56000e4f.chunk.js": "/numenera-cs/static/js/722.56000e4f.chunk.js",
+    "static/js/722.4faeb934.chunk.js": "/numenera-cs/static/js/722.4faeb934.chunk.js",
     "static/js/508.3fa814ce.chunk.js": "/numenera-cs/static/js/508.3fa814ce.chunk.js",
     "static/css/326.31d6cfe0.chunk.css": "/numenera-cs/static/css/326.31d6cfe0.chunk.css",
     "static/js/326.e6be7a43.chunk.js": "/numenera-cs/static/js/326.e6be7a43.chunk.js",
@@ -19,11 +19,11 @@
     "static/js/989.466f711a.chunk.js": "/numenera-cs/static/js/989.466f711a.chunk.js",
     "static/js/50.98ba55d6.chunk.js": "/numenera-cs/static/js/50.98ba55d6.chunk.js",
     "index.html": "/numenera-cs/index.html",
-    "main.1d6ab75f.css.map": "/numenera-cs/static/css/main.1d6ab75f.css.map",
-    "main.394a3086.js.map": "/numenera-cs/static/js/main.394a3086.js.map",
+    "main.f1f1e1c0.css.map": "/numenera-cs/static/css/main.f1f1e1c0.css.map",
+    "main.494a0fb2.js.map": "/numenera-cs/static/js/main.494a0fb2.js.map",
     "487.5107c376.chunk.js.map": "/numenera-cs/static/js/487.5107c376.chunk.js.map",
     "722.12962f6b.chunk.css.map": "/numenera-cs/static/css/722.12962f6b.chunk.css.map",
-    "722.56000e4f.chunk.js.map": "/numenera-cs/static/js/722.56000e4f.chunk.js.map",
+    "722.4faeb934.chunk.js.map": "/numenera-cs/static/js/722.4faeb934.chunk.js.map",
     "508.3fa814ce.chunk.js.map": "/numenera-cs/static/js/508.3fa814ce.chunk.js.map",
     "326.e6be7a43.chunk.js.map": "/numenera-cs/static/js/326.e6be7a43.chunk.js.map",
     "787.2239354e.chunk.js.map": "/numenera-cs/static/js/787.2239354e.chunk.js.map",
@@ -38,7 +38,7 @@
     "50.98ba55d6.chunk.js.map": "/numenera-cs/static/js/50.98ba55d6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1d6ab75f.css",
-    "static/js/main.394a3086.js"
+    "static/css/main.f1f1e1c0.css",
+    "static/js/main.494a0fb2.js"
   ]
 }
