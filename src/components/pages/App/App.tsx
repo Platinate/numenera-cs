@@ -9,6 +9,7 @@ import JsonFileLoader from "../../atoms/JsonFileLoader/JsonFileLoader";
 import IWeapon from "../../../models/weapon";
 import ICypher from "../../../models/cypher";
 import IArtifact from "../../../models/artifact";
+import logo from "../../../assets/images/R-white.png";
 
 function App() {
   const [character, setCharacter] = useState<ICharacter>(new Character());
@@ -86,6 +87,11 @@ function App() {
 
   return (
     <div className="App">
+      <Row>
+        <Col xs={24} style={{display:"flex",justifyContent:"center", marginBottom: 18}}>
+          <img alt="logo" src={logo} height={75}/>
+        </Col>
+      </Row>
       <Row>
         <Col xs={24} lg={6}>
           <div
