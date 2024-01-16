@@ -2,8 +2,8 @@ import React from "react";
 import IWeapon from "../../../models/weapon";
 import { Button, Col, Row } from "antd";
 import { WEAPON_CATEGORY } from "../../../constants/types";
+import WeaponItem from "../../atoms/WeaponItem/WeaponItem";
 
-const WeaponItem = React.lazy(() => import("../../atoms/WeaponItem/WeaponItem"))
 
 interface IProps {
     weapons: IWeapon[];

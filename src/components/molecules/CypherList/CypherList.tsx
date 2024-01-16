@@ -1,6 +1,7 @@
 import React from "react";
 import ICypher from "../../../models/cypher";
 import { Button, Col, InputNumber, Row } from "antd";
+import CypherItem from "../../atoms/CypherItem/CypherItem";
 
 interface IProps {
   cypherLimit: number;
@@ -9,10 +10,6 @@ interface IProps {
   onCyphersUpdate: (cyphers: ICypher[]) => void;
   onValueChange: (name:string, value:any) => void;
 }
-
-const CypherItem = React.lazy(
-  () => import("../../atoms/CypherItem/CypherItem")
-);
 
 const CypherList: React.FC<IProps> = ({
   cyphers,

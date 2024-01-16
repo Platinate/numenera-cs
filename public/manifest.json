@@ -2,8 +2,8 @@
   "theme_color": "#000000",
   "background_color": "#ffffff",
   "display": "standalone",
-  "scope": "/",
-  "start_url": "/",
+  "scope": "/numenera-cs",
+  "start_url": "/numenera-cs",
   "name": "Numenera Character Sheet",
   "short_name": "Numenera CS",
   "icons": [

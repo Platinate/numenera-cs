@@ -15,26 +15,16 @@ import IWeapon, { Weapon } from "../../../models/weapon";
 import ICypher, { Cypher } from "../../../models/cypher";
 
 import "./CharacterSheet.css";
-import Loading from "../../atoms/Loading/Loading";
 import ProgressionTracking from "../../molecules/ProgressionTracking/ProgressionTracking";
 import IArtifact, { Artifact } from "../../../models/artifact";
 import ArtifactList from "../../molecules/ArtifactList/ArtifactList";
+import AbilityList from "../../molecules/AbilityList/AbilityList";
+import CombatTracking from "../../molecules/CombatTracking/CombatTracking";
+import CypherList from "../../molecules/CypherList/CypherList";
+import SkillList from "../../molecules/SkillList/SkillList";
 
 const { TabPane } = Tabs;
 const { Panel } = Collapse;
-
-const AbilityList = React.lazy(
-  () => import("../../molecules/AbilityList/AbilityList")
-);
-const CombatTracking = React.lazy(
-  () => import("../../molecules/CombatTracking/CombatTracking")
-);
-const CypherList = React.lazy(
-  () => import("../../molecules/CypherList/CypherList")
-);
-const SkillList = React.lazy(
-  () => import("../../molecules/SkillList/SkillList")
-);
 
 interface IProps {
   character: ICharacter;
@@ -244,13 +234,11 @@ const CharacterSheet: React.FC<IProps> = ({
           icon={<StarOutlined />}
           closable={false}
         >
-          <React.Suspense fallback={<Loading />}>
             <SkillList
               skills={character.skills}
               onSkillAdd={handleOnSkillAdd}
               onSkillsUpdate={handleOnSkillsUpdate}
             />
-          </React.Suspense>
         </TabPane>
         <TabPane
           tab="Aptitudes"
@@ -258,23 +246,19 @@ const CharacterSheet: React.FC<IProps> = ({
           icon={<DeploymentUnitOutlined />}
           closable={false}
         >
-          <React.Suspense fallback={<Loading />}>
             <AbilityList
               abilities={character.abilities}
               onAbilityAdd={handleOnAbilityAdd}
               onAbilitiesUpdate={handleOnAbilitiesUpdate}
             />
-          </React.Suspense>
         </TabPane>
         <TabPane tab="Combat" key="3" icon={<BarsOutlined />} closable={false}>
-          <React.Suspense fallback={<Loading />}>
             <CombatTracking
               character={character}
               handleOnWeaponAdd={handleOnWeaponAdd}
               handleOnWeaponsUpdate={handleOnWeaponUpdate}
               onRestChange={onValueChange}
             />
-          </React.Suspense>
         </TabPane>
         <TabPane
           tab="Cyphers & Artefacts"
@@ -284,7 +268,6 @@ const CharacterSheet: React.FC<IProps> = ({
         >
           <Collapse bordered={false}>
             <Panel key="1" header="Cyphers">
-              <React.Suspense fallback={<Loading />}>
                 <CypherList
                   cypherLimit={character.cypherLimit}
                   cyphers={character.cyphers}
@@ -292,16 +275,13 @@ const CharacterSheet: React.FC<IProps> = ({
                   onCyphersUpdate={handleOnCypherUpdate}
                   onValueChange={onValueChange}
                 />
-              </React.Suspense>
             </Panel>
             <Panel key="2" header="Artefacts">
-            <React.Suspense fallback={<Loading />}>
                 <ArtifactList
                   artifacts={character.artifacts}
                   onArtifactAdd={handleOnArtifactAdd}
                   onArtifactsUpdate={handleOnArtifactUpdate}
                 />
-              </React.Suspense>
             </Panel>
           </Collapse>
         </TabPane>
@@ -314,13 +294,11 @@ const CharacterSheet: React.FC<IProps> = ({
           <ProgressionTracking onValueChange={onValueChange} abilityProgression={character.abilityProgression} poolProgression={character.poolProgression} skillProgression={character.skillProgression} effortProgression={character.effortProgression} />
         </TabPane>
         <TabPane tab="Notes" key="6" icon={<FormOutlined />} closable={false}>
-          <React.Suspense fallback={<Loading />}>
             <Input.TextArea
               value={character.note}
               name="note"
               onChange={handleOnChange}
             />
-          </React.Suspense>
         </TabPane>
       </Tabs>
     </div>

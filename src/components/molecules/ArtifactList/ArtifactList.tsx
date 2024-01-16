@@ -3,16 +3,13 @@ import React from "react";
 import "./ArtifactList.css";
 import IArtifact from "../../../models/artifact";
 import { Button, Row, Col } from "antd";
+import ArtifactItem from "../../atoms/ArtifactItem/ArtifactItem";
 
 interface IProps {
     artifacts: IArtifact[];
     onArtifactAdd: () => void;
     onArtifactsUpdate: (artifacts: IArtifact[]) => void;
   }
-  
-  const ArtifactItem = React.lazy(
-    () => import("../../atoms/ArtifactItem/ArtifactItem")
-  );
 
 const ArtifactList : React.FC<IProps> = ({artifacts,onArtifactAdd,onArtifactsUpdate}) => {
     const handleOnArtifactNameChange = (id: number, value: string) => {
