@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/numenera-cs/static/css/main.f1f1e1c0.css",
-    "main.js": "/numenera-cs/static/js/main.d1a54c46.js",
+    "main.css": "/numenera-cs/static/css/main.e06fb8cb.css",
+    "main.js": "/numenera-cs/static/js/main.14de1a82.js",
     "static/js/487.5107c376.chunk.js": "/numenera-cs/static/js/487.5107c376.chunk.js",
     "static/css/722.12962f6b.chunk.css": "/numenera-cs/static/css/722.12962f6b.chunk.css",
     "static/js/722.56eed1d9.chunk.js": "/numenera-cs/static/js/722.56eed1d9.chunk.js",
@@ -20,9 +20,10 @@
     "static/css/989.1fa53e94.chunk.css": "/numenera-cs/static/css/989.1fa53e94.chunk.css",
     "static/js/989.466f711a.chunk.js": "/numenera-cs/static/js/989.466f711a.chunk.js",
     "static/js/50.98ba55d6.chunk.js": "/numenera-cs/static/js/50.98ba55d6.chunk.js",
+    "static/media/R-white.png": "/numenera-cs/static/media/R-white.724ea986c6723362281b.png",
     "index.html": "/numenera-cs/index.html",
-    "main.f1f1e1c0.css.map": "/numenera-cs/static/css/main.f1f1e1c0.css.map",
-    "main.d1a54c46.js.map": "/numenera-cs/static/js/main.d1a54c46.js.map",
+    "main.e06fb8cb.css.map": "/numenera-cs/static/css/main.e06fb8cb.css.map",
+    "main.14de1a82.js.map": "/numenera-cs/static/js/main.14de1a82.js.map",
     "487.5107c376.chunk.js.map": "/numenera-cs/static/js/487.5107c376.chunk.js.map",
     "722.12962f6b.chunk.css.map": "/numenera-cs/static/css/722.12962f6b.chunk.css.map",
     "722.56eed1d9.chunk.js.map": "/numenera-cs/static/js/722.56eed1d9.chunk.js.map",
@@ -41,7 +42,7 @@
     "50.98ba55d6.chunk.js.map": "/numenera-cs/static/js/50.98ba55d6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f1f1e1c0.css",
-    "static/js/main.d1a54c46.js"
+    "static/css/main.e06fb8cb.css",
+    "static/js/main.14de1a82.js"
   ]
 }
