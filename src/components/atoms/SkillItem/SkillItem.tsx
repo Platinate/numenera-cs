@@ -2,7 +2,7 @@ import React from "react";
 import ISkill from "../../../models/skill";
 
 import "./SkillItem.css";
-import { Button, Col, Input, Radio, Row, Select } from "antd";
+import { Button, Col, Input, Row, Select } from "antd";
 import { SKILL_LEVEL } from "../../../constants/types";
 import { DeleteOutlined } from "@ant-design/icons";
 

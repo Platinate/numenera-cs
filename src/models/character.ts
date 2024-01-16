@@ -1,7 +1,6 @@
 import IAbility from "./ability";
 import ICypher from "./cypher";
 import ISkill from "./skill";
-import IPool from "./skill";
 import IWeapon from "./weapon";
 
 export default interface ICharacter {
@@ -44,6 +43,11 @@ export default interface ICharacter {
     recovery10MinsUsed: boolean;
     recovery1HourUsed: boolean;
     recovery10HoursUsed: boolean;
+    
+    effortProgression: number;
+    skillProgression: number;
+    poolProgression: number;
+    abilityProgression: number;
 }
 
 export class Character implements ICharacter {
@@ -80,6 +84,11 @@ export class Character implements ICharacter {
     recovery10HoursUsed: boolean;
 
     cypherLimit: number;
+
+    effortProgression: number;
+    skillProgression: number;
+    poolProgression: number;
+    abilityProgression: number;
     /**
      * 
      */
@@ -115,6 +124,11 @@ export class Character implements ICharacter {
         this.recovery10MinsUsed = false;
         this.recovery1HourUsed = false;
         this.recovery10HoursUsed = false;
+
+        this.abilityProgression = 0;
+        this.poolProgression = 0;
+        this.effortProgression = 0;
+        this.skillProgression = 0;
 
         this.cypherLimit = 0;
     }

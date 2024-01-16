@@ -7,6 +7,7 @@ import {
   BarsOutlined,
   DeploymentUnitOutlined,
   FormOutlined,
+  RiseOutlined,
   StarOutlined,
 } from "@ant-design/icons";
 import IAbility, { Ability } from "../../../models/ability";
@@ -15,6 +16,7 @@ import ICypher, { Cypher } from "../../../models/cypher";
 
 import "./CharacterSheet.css";
 import Loading from "../../atoms/Loading/Loading";
+import ProgressionTracking from "../../molecules/ProgressionTracking/ProgressionTracking";
 
 const { TabPane } = Tabs;
 const { Panel } = Collapse;
@@ -282,7 +284,15 @@ const CharacterSheet: React.FC<IProps> = ({
             <Panel key="2" header="Artefacts"></Panel>
           </Collapse>
         </TabPane>
-        <TabPane tab="Notes" key="5" icon={<FormOutlined />} closable={false}>
+        <TabPane
+          tab="Progression"
+          key="5"
+          icon={<RiseOutlined />}
+          closable={false}
+        >
+          <ProgressionTracking onValueChange={onValueChange} abilityProgression={character.abilityProgression} poolProgression={character.poolProgression} skillProgression={character.skillProgression} effortProgression={character.effortProgression} />
+        </TabPane>
+        <TabPane tab="Notes" key="6" icon={<FormOutlined />} closable={false}>
           <React.Suspense fallback={<Loading />}>
             <Input.TextArea
               value={character.note}

@@ -2,3 +2,7 @@
     padding: 20px;
     font-family: 'Copperplate Gothic';
 }
+
+.App .ant-divider {
+    margin: 16px 0;
+}
