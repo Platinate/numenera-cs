@@ -2,7 +2,7 @@ import React from "react";
 
 import "./ArtifactList.css";
 import IArtifact from "../../../models/artifact";
-import { Button, InputNumber, Row, Col } from "antd";
+import { Button, Row, Col } from "antd";
 
 interface IProps {
     artifacts: IArtifact[];

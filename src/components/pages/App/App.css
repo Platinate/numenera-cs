@@ -1,8 +1,17 @@
 .App {
     padding: 20px;
     font-family: 'Copperplate Gothic';
+    background : linear-gradient(#0c1445, #4c408e,#5c54a4,#38285c);
 }
 
 .App .ant-divider {
     margin: 16px 0;
+}
+
+.App .save-control {  
+    border: 1px solid lightgray;
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.33);
 }

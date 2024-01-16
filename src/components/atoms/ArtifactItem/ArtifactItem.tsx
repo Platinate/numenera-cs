@@ -1,4 +1,4 @@
-import { Button, Col, Input, InputNumber, Row } from "antd";
+import { Button, Col, Input, Row } from "antd";
 import React from "react";
 import IArtifact from "../../../models/artifact";
 import { DeleteOutlined } from "@ant-design/icons";
