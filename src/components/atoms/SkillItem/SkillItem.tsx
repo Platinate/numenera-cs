@@ -6,12 +6,6 @@ import { Button, Col, Input, Row, Select } from "antd";
 import { SKILL_LEVEL } from "../../../constants/types";
 import { DeleteOutlined } from "@ant-design/icons";
 
-const options = [
-    { label: 'Entrainé', value: 'E' },
-    { label: 'Spécialisé', value: 'S' },
-    { label: 'Inapte', value: 'I' },
-];
-
 interface IProps {
     skill: ISkill;
     onSkillNameChange: (id: number, value: string) => void;
