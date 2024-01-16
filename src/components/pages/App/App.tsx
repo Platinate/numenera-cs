@@ -89,7 +89,7 @@ function App() {
     <div className="App">
       <Row>
         <Col xs={24} style={{display:"flex",justifyContent:"center", marginBottom: 18}}>
-          <img alt="logo" src={logo} height={75}/>
+          <img alt="logo" src={logo} style={{width: '90%'}}/>
         </Col>
       </Row>
       <Row>
