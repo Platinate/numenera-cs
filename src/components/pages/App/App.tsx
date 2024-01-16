@@ -8,6 +8,7 @@ import { Button } from 'antd';
 import JsonFileLoader from '../../atoms/JsonFileLoader/JsonFileLoader';
 import IWeapon from '../../../models/weapon';
 import ICypher from '../../../models/cypher';
+import IArtifact from '../../../models/artifact';
 
 function App() {
 
@@ -60,6 +61,14 @@ function App() {
     localStorage.setItem("character", JSON.stringify(c));
   }
 
+  const handleOnArtifactListChange = (artifacts: IArtifact[]) => {
+    let c = character;
+    c = { ...c, artifacts: artifacts };
+    c.id = Math.ceil(Math.random()*100);
+    setCharacter(c);
+    localStorage.setItem("character", JSON.stringify(c));
+  }
+
   const exportCharacter = () => {
     const jsonString = `data:text/json;chatset=utf-8,${encodeURIComponent(
       JSON.stringify(character)
@@ -83,7 +92,7 @@ function App() {
         <Button type="primary" onClick={exportCharacter}>Exporter</Button>
         <JsonFileLoader onDataLoaded={loadCharacter}/>
       </div>
-      <CharacterSheet character={character} onValueChange={handleOnValueChange} onSkillListChange={handleOnSkillListChange} onAbilityListChange={handleOnAbilityListChange} onWeaponListChange={handleOnWeaponListChange} onCypherListChange={handleOnCypherListChange} />
+      <CharacterSheet character={character} onValueChange={handleOnValueChange} onSkillListChange={handleOnSkillListChange} onAbilityListChange={handleOnAbilityListChange} onWeaponListChange={handleOnWeaponListChange} onCypherListChange={handleOnCypherListChange} onArtifactListChange={handleOnArtifactListChange}/>
     </div>
   );
 }

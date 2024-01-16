@@ -40,13 +40,13 @@ const CombatTracking: React.FC<IProps> = ({
         </Col>
       </Row>
       <Row align={"middle"} gutter={[16,16]} style={{marginTop: 8}}>
-        <Col xs={8} style={{display: "flex", alignItems:"center"}}>
+        <Col xs={8} md={4} style={{display: "flex", alignItems:"center"}}>
           <span style={{marginRight: 8}}>Dégats :</span>
         </Col>
-        <Col xs={6} style={{display: "flex", alignItems: "center"}}>
+        <Col xs={8} md={4} style={{display: "flex", alignItems: "center"}}>
           <Checkbox name="impaired" checked={character.impaired} onChange={(evt) => onRestChange(evt.target.name!,evt.target.checked)}>Diminué</Checkbox>
         </Col>
-        <Col xs={6} style={{display: "flex", alignItems: "center"}}>
+        <Col xs={8} md={4} style={{display: "flex", alignItems: "center"}}>
           <Checkbox name="disabilited" checked={character.disabilited} onChange={(evt) => onRestChange(evt.target.name!,evt.target.checked)}>Incapacité</Checkbox>
         </Col>
       </Row>

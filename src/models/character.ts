@@ -1,11 +1,10 @@
 import IAbility from "./ability";
+import IArtifact from "./artifact";
 import ICypher from "./cypher";
 import ISkill from "./skill";
 import IWeapon from "./weapon";
 
 export default interface ICharacter {
-    cyphers: ICypher[];
-    cypherLimit: number;
 
     id:number;
 
@@ -36,6 +35,10 @@ export default interface ICharacter {
     skills: ISkill[];
     abilities: IAbility[];
     weapons: IWeapon[];
+    cyphers: ICypher[];
+    artifacts: IArtifact[];
+
+    cypherLimit: number;
 
     note:string;
 
@@ -79,6 +82,7 @@ export class Character implements ICharacter {
     abilities: IAbility[];
     weapons: IWeapon[];
     cyphers: ICypher[];
+    artifacts: IArtifact[];
     note:string;
 
     recovery1ActionUsed: boolean;
@@ -125,6 +129,7 @@ export class Character implements ICharacter {
         this.abilities = [];
         this.weapons = [];
         this.cyphers= [];
+        this.artifacts = [];
 
         this.recovery1ActionUsed = false;
         this.recovery10MinsUsed = false;

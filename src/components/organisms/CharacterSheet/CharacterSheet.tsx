@@ -17,6 +17,8 @@ import ICypher, { Cypher } from "../../../models/cypher";
 import "./CharacterSheet.css";
 import Loading from "../../atoms/Loading/Loading";
 import ProgressionTracking from "../../molecules/ProgressionTracking/ProgressionTracking";
+import IArtifact, { Artifact } from "../../../models/artifact";
+import ArtifactList from "../../molecules/ArtifactList/ArtifactList";
 
 const { TabPane } = Tabs;
 const { Panel } = Collapse;
@@ -41,6 +43,7 @@ interface IProps {
   onAbilityListChange: (newList: IAbility[]) => void;
   onWeaponListChange: (newList: IWeapon[]) => void;
   onCypherListChange: (newList: ICypher[]) => void;
+  onArtifactListChange: (newList: IArtifact[]) => void;
 }
 
 const CharacterSheet: React.FC<IProps> = ({
@@ -50,6 +53,7 @@ const CharacterSheet: React.FC<IProps> = ({
   onAbilityListChange,
   onWeaponListChange,
   onCypherListChange,
+  onArtifactListChange
 }) => {
   const handleOnChange = (evt: any) => {
     onValueChange(evt.target.name, evt.target.value);
@@ -94,6 +98,15 @@ const CharacterSheet: React.FC<IProps> = ({
 
   const handleOnCypherUpdate = (cyphers: ICypher[]) => {
     onCypherListChange(cyphers);
+  };
+
+  const handleOnArtifactAdd = () => {
+    character.artifacts.push(new Artifact());
+    onArtifactListChange(character.artifacts);
+  };
+
+  const handleOnArtifactUpdate = (artifacts: IArtifact[]) => {
+    onArtifactListChange(artifacts);
   };
 
   return (
@@ -281,7 +294,15 @@ const CharacterSheet: React.FC<IProps> = ({
                 />
               </React.Suspense>
             </Panel>
-            <Panel key="2" header="Artefacts"></Panel>
+            <Panel key="2" header="Artefacts">
+            <React.Suspense fallback={<Loading />}>
+                <ArtifactList
+                  artifacts={character.artifacts}
+                  onArtifactAdd={handleOnArtifactAdd}
+                  onArtifactsUpdate={handleOnArtifactUpdate}
+                />
+              </React.Suspense>
+            </Panel>
           </Collapse>
         </TabPane>
         <TabPane
