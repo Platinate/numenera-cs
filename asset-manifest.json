@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/numenera-cs/static/css/main.e06fb8cb.css",
-    "main.js": "/numenera-cs/static/js/main.142bb9c6.js",
+    "main.js": "/numenera-cs/static/js/main.a50c894a.js",
     "static/js/487.5107c376.chunk.js": "/numenera-cs/static/js/487.5107c376.chunk.js",
     "static/css/722.12962f6b.chunk.css": "/numenera-cs/static/css/722.12962f6b.chunk.css",
     "static/js/722.56eed1d9.chunk.js": "/numenera-cs/static/js/722.56eed1d9.chunk.js",
@@ -23,7 +23,7 @@
     "static/media/R-white.png": "/numenera-cs/static/media/R-white.724ea986c6723362281b.png",
     "index.html": "/numenera-cs/index.html",
     "main.e06fb8cb.css.map": "/numenera-cs/static/css/main.e06fb8cb.css.map",
-    "main.142bb9c6.js.map": "/numenera-cs/static/js/main.142bb9c6.js.map",
+    "main.a50c894a.js.map": "/numenera-cs/static/js/main.a50c894a.js.map",
     "487.5107c376.chunk.js.map": "/numenera-cs/static/js/487.5107c376.chunk.js.map",
     "722.12962f6b.chunk.css.map": "/numenera-cs/static/css/722.12962f6b.chunk.css.map",
     "722.56eed1d9.chunk.js.map": "/numenera-cs/static/js/722.56eed1d9.chunk.js.map",
@@ -43,6 +43,6 @@
   },
   "entrypoints": [
     "static/css/main.e06fb8cb.css",
-    "static/js/main.142bb9c6.js"
+    "static/js/main.a50c894a.js"
   ]
 }
