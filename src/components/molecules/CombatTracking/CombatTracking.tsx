@@ -39,6 +39,17 @@ const CombatTracking: React.FC<IProps> = ({
           <Checkbox name="recovery10HoursUsed" checked={character.recovery10HoursUsed} onChange={(evt) => onRestChange(evt.target.name!,evt.target.checked)}>10 hrs</Checkbox>
         </Col>
       </Row>
+      <Row align={"middle"} gutter={[16,16]} style={{marginTop: 8}}>
+        <Col xs={8} style={{display: "flex", alignItems:"center"}}>
+          <span style={{marginRight: 8}}>Dégats :</span>
+        </Col>
+        <Col xs={6} style={{display: "flex", alignItems: "center"}}>
+          <Checkbox name="impaired" checked={character.impaired} onChange={(evt) => onRestChange(evt.target.name!,evt.target.checked)}>Diminué</Checkbox>
+        </Col>
+        <Col xs={6} style={{display: "flex", alignItems: "center"}}>
+          <Checkbox name="disabilited" checked={character.disabilited} onChange={(evt) => onRestChange(evt.target.name!,evt.target.checked)}>Incapacité</Checkbox>
+        </Col>
+      </Row>
       <Row style={{ marginTop: 16 }}>
         <Col xs={24}>
           <WeaponList

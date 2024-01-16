@@ -15,7 +15,7 @@ const ProgressionTracking : React.FC<IProps> = () => {
     return (
         <div className="ProgressionTracking">
             <h3 style={{textAlign:"center"}}>Dépenser 4XP pour augmenter d'un cran (max: RANG + 1)</h3>
-            <Row gutter={[16,16]}>
+            <Row align={"middle"} gutter={[16,16]}>
                 <Col xs={12} md={6}>
                     <InputNumber name="abilityProgression" onChange={(v) => console.log(v)} min={0} defaultValue={0} style={{width: '90%', margin: '0 auto', display: 'block'}}/>
                     <div>

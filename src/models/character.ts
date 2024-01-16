@@ -48,6 +48,9 @@ export default interface ICharacter {
     skillProgression: number;
     poolProgression: number;
     abilityProgression: number;
+
+    disabilited: boolean;
+    impaired: boolean;
 }
 
 export class Character implements ICharacter {
@@ -89,6 +92,9 @@ export class Character implements ICharacter {
     skillProgression: number;
     poolProgression: number;
     abilityProgression: number;
+
+    disabilited: boolean;
+    impaired: boolean;
     /**
      * 
      */
@@ -131,5 +137,8 @@ export class Character implements ICharacter {
         this.skillProgression = 0;
 
         this.cypherLimit = 0;
+
+        this.disabilited = false;
+        this.impaired = false;
     }
 }
