@@ -113,7 +113,7 @@ const CharacterSheet: React.FC<IProps> = ({
       </Row>
       <Row gutter={16} align="middle">
         <Col xs={6}>
-          <p>EST UN</p>
+          <p style={{ textAlign: "center" }}>EST UN</p>
         </Col>
         <Col xs={9}>
           <Input
@@ -134,7 +134,7 @@ const CharacterSheet: React.FC<IProps> = ({
       </Row>
       <Row gutter={16} align="middle">
         <Col xs={4}>
-          <p>QUI</p>
+          <p style={{ textAlign: "center" }}>QUI</p>
         </Col>
         <Col xs={20}>
           <Input
@@ -145,39 +145,47 @@ const CharacterSheet: React.FC<IProps> = ({
           />
         </Col>
       </Row>
+      <Divider />
       <Row gutter={16}>
         <Col xs={8}>
-          <h4>RANG</h4>
-          <InputNumber
-            style={{ width: "100%" }}
-            value={character.tier}
-            defaultValue={0}
-            min={0}
-            name="tier"
-            onChange={(v) => onValueChange("tier", v)}
-          />
+          <div className="character-sheet__counter">
+            <h4 style={{ textAlign: "center" }}>RANG</h4>
+            <InputNumber
+              style={{ width: "100%" }}
+              value={character.tier}
+              defaultValue={0}
+              min={0}
+              name="tier"
+              onChange={(v) => onValueChange("tier", v)}
+            />
+
+          </div>
         </Col>
         <Col xs={8}>
-          <h4>EFFORT</h4>
-          <InputNumber
-            style={{ width: "100%" }}
-            value={character.effort}
-            defaultValue={0}
-            min={0}
-            name="effort"
-            onChange={(v) => onValueChange("effort", v)}
-          />
+          <div className="character-sheet__counter">
+            <h4 style={{ textAlign: "center" }}>EFFORT</h4>
+            <InputNumber
+              style={{ width: "100%" }}
+              value={character.effort}
+              defaultValue={0}
+              min={0}
+              name="effort"
+              onChange={(v) => onValueChange("effort", v)}
+            /></div>
+
         </Col>
         <Col xs={8}>
-          <h4>XP</h4>
-          <InputNumber
-            style={{ width: "100%" }}
-            value={character.xp}
-            defaultValue={0}
-            min={0}
-            name="xp"
-            onChange={(v) => onValueChange("xp", v)}
-          />
+          <div className="character-sheet__counter">
+            <h4 style={{ textAlign: "center" }}>XP</h4>
+            <InputNumber
+              style={{ width: "100%" }}
+              value={character.xp}
+              defaultValue={0}
+              min={0}
+              name="xp"
+              onChange={(v) => onValueChange("xp", v)}
+            /></div>
+
         </Col>
       </Row>
       <Divider />
@@ -274,11 +282,11 @@ const CharacterSheet: React.FC<IProps> = ({
                 onChange={handleOnChange}
               />
             </Panel>
-            <Panel key="2" style={{padding:0,margin: 0}} header={
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems:'center' }}>
+            <Panel key="2" style={{ padding: 0, margin: 0 }} header={
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <span>Cyphers</span>
                 <div>
-                  <span style={{marginRight: 8}}>Limite : </span>
+                  <span style={{ marginRight: 8 }}>Limite : </span>
                   <InputNumber name="cypherLimit" value={character.cypherLimit} onChange={(v) => onValueChange("cypherLimit", v!)} />
                 </div>
               </div>}>

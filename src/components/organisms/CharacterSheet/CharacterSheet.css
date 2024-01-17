@@ -14,3 +14,13 @@
   padding: 8px 16px !important;
   align-items: center !important;
 }
+
+.CharacterSheet .character-sheet__counter h4 {
+  margin: 8px 0;
+}
+
+.CharacterSheet .character-sheet__counter {
+  border-radius: 5px;
+  padding: 8px;
+  border: 2px solid lightgray;
+}
