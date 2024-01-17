@@ -1,6 +1,6 @@
 import React from "react";
 import ICypher from "../../../models/cypher";
-import { Button, Col, InputNumber, Row } from "antd";
+import { Button, Col, Row } from "antd";
 import CypherItem from "../../atoms/CypherItem/CypherItem";
 
 interface IProps {
@@ -57,10 +57,6 @@ const CypherList: React.FC<IProps> = ({
           >
             Ajouter cypher
           </Button>
-        </div>
-        <div>
-          <span>Limite : </span>
-          <InputNumber name="cypherLimit" value={cypherLimit} onChange={(v) => onValueChange("cypherLimit",v!)} />
         </div>
       </div>
       <Row gutter={16}>

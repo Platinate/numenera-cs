@@ -234,11 +234,11 @@ const CharacterSheet: React.FC<IProps> = ({
           icon={<StarOutlined />}
           closable={false}
         >
-            <SkillList
-              skills={character.skills}
-              onSkillAdd={handleOnSkillAdd}
-              onSkillsUpdate={handleOnSkillsUpdate}
-            />
+          <SkillList
+            skills={character.skills}
+            onSkillAdd={handleOnSkillAdd}
+            onSkillsUpdate={handleOnSkillsUpdate}
+          />
         </TabPane>
         <TabPane
           tab="Aptitudes"
@@ -246,42 +246,56 @@ const CharacterSheet: React.FC<IProps> = ({
           icon={<DeploymentUnitOutlined />}
           closable={false}
         >
-            <AbilityList
-              abilities={character.abilities}
-              onAbilityAdd={handleOnAbilityAdd}
-              onAbilitiesUpdate={handleOnAbilitiesUpdate}
-            />
+          <AbilityList
+            abilities={character.abilities}
+            onAbilityAdd={handleOnAbilityAdd}
+            onAbilitiesUpdate={handleOnAbilitiesUpdate}
+          />
         </TabPane>
         <TabPane tab="Combat" key="3" icon={<BarsOutlined />} closable={false}>
-            <CombatTracking
-              character={character}
-              handleOnWeaponAdd={handleOnWeaponAdd}
-              handleOnWeaponsUpdate={handleOnWeaponUpdate}
-              onRestChange={onValueChange}
-            />
+          <CombatTracking
+            character={character}
+            handleOnWeaponAdd={handleOnWeaponAdd}
+            handleOnWeaponsUpdate={handleOnWeaponUpdate}
+            onRestChange={onValueChange}
+          />
         </TabPane>
         <TabPane
-          tab="Cyphers & Artefacts"
+          tab="Équipement"
           key="4"
           icon={<BarsOutlined />}
           closable={false}
         >
           <Collapse bordered={false}>
-            <Panel key="1" header="Cyphers">
-                <CypherList
-                  cypherLimit={character.cypherLimit}
-                  cyphers={character.cyphers}
-                  onCypherAdd={handleOnCypherAdd}
-                  onCyphersUpdate={handleOnCypherUpdate}
-                  onValueChange={onValueChange}
-                />
+            <Panel key="1" header="Inventaire">
+              <Input.TextArea
+                value={character.stuff}
+                name="stuff"
+                onChange={handleOnChange}
+              />
             </Panel>
-            <Panel key="2" header="Artefacts">
-                <ArtifactList
-                  artifacts={character.artifacts}
-                  onArtifactAdd={handleOnArtifactAdd}
-                  onArtifactsUpdate={handleOnArtifactUpdate}
-                />
+            <Panel key="2" style={{padding:0,margin: 0}} header={
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems:'center' }}>
+                <span>Cyphers</span>
+                <div>
+                  <span style={{marginRight: 8}}>Limite : </span>
+                  <InputNumber name="cypherLimit" value={character.cypherLimit} onChange={(v) => onValueChange("cypherLimit", v!)} />
+                </div>
+              </div>}>
+              <CypherList
+                cypherLimit={character.cypherLimit}
+                cyphers={character.cyphers}
+                onCypherAdd={handleOnCypherAdd}
+                onCyphersUpdate={handleOnCypherUpdate}
+                onValueChange={onValueChange}
+              />
+            </Panel>
+            <Panel key="3" header="Artefacts">
+              <ArtifactList
+                artifacts={character.artifacts}
+                onArtifactAdd={handleOnArtifactAdd}
+                onArtifactsUpdate={handleOnArtifactUpdate}
+              />
             </Panel>
           </Collapse>
         </TabPane>
@@ -291,14 +305,14 @@ const CharacterSheet: React.FC<IProps> = ({
           icon={<RiseOutlined />}
           closable={false}
         >
-          <ProgressionTracking onValueChange={onValueChange} abilityProgression={character.abilityProgression} poolProgression={character.poolProgression} skillProgression={character.skillProgression} effortProgression={character.effortProgression} />
+          <ProgressionTracking onValueChange={onValueChange} otherProgression={character.otherProgression} abilityProgression={character.abilityProgression} poolProgression={character.poolProgression} skillProgression={character.skillProgression} effortProgression={character.effortProgression} />
         </TabPane>
         <TabPane tab="Notes" key="6" icon={<FormOutlined />} closable={false}>
-            <Input.TextArea
-              value={character.note}
-              name="note"
-              onChange={handleOnChange}
-            />
+          <Input.TextArea
+            value={character.note}
+            name="note"
+            onChange={handleOnChange}
+          />
         </TabPane>
       </Tabs>
     </div>

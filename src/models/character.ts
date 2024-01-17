@@ -5,12 +5,14 @@ import ISkill from "./skill";
 import IWeapon from "./weapon";
 
 export default interface ICharacter {
+    otherProgression: number;
 
     id:number;
 
     focus: string;
     name: string;
     descriptor: string;
+    stuff:string;
     type: string;
     tier: number;
     effort: number;
@@ -42,18 +44,16 @@ export default interface ICharacter {
 
     note:string;
 
-    recovery1ActionUsed: boolean;
-    recovery10MinsUsed: boolean;
-    recovery1HourUsed: boolean;
-    recovery10HoursUsed: boolean;
+    recovery:string;
     
     effortProgression: number;
     skillProgression: number;
     poolProgression: number;
     abilityProgression: number;
 
-    disabilited: boolean;
-    impaired: boolean;
+    armor:number;
+
+    status:string;
 }
 
 export class Character implements ICharacter {
@@ -61,6 +61,7 @@ export class Character implements ICharacter {
     descriptor: string;
     type: string;
     focus:string;
+    stuff:string;
     tier: number;
     effort: number;
     xp: number;
@@ -85,10 +86,11 @@ export class Character implements ICharacter {
     artifacts: IArtifact[];
     note:string;
 
-    recovery1ActionUsed: boolean;
-    recovery10MinsUsed: boolean;
-    recovery1HourUsed: boolean;
-    recovery10HoursUsed: boolean;
+    armor:number;
+
+    recovery:string;
+
+    status:string;
 
     cypherLimit: number;
 
@@ -107,6 +109,7 @@ export class Character implements ICharacter {
         this.descriptor = '';
         this.focus = '';
         this.type = '';
+        this.stuff = '';
         this.tier = 0;
         this.effort = 0;
         this.xp = 0;
@@ -131,19 +134,21 @@ export class Character implements ICharacter {
         this.cyphers= [];
         this.artifacts = [];
 
-        this.recovery1ActionUsed = false;
-        this.recovery10MinsUsed = false;
-        this.recovery1HourUsed = false;
-        this.recovery10HoursUsed = false;
+        this.recovery = '';
+        this.status = '';
 
         this.abilityProgression = 0;
         this.poolProgression = 0;
         this.effortProgression = 0;
         this.skillProgression = 0;
+        this.otherProgression = 0;
+
+        this.armor = 0;
 
         this.cypherLimit = 0;
 
         this.disabilited = false;
         this.impaired = false;
     }
+    otherProgression: number;
 }

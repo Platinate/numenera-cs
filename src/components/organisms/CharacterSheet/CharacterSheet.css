@@ -1,11 +1,16 @@
 .CharacterSheet {
-    border: 1px solid lightgray;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 5px 5px 10px rgba(0,0,0,0.33);
-    background: white;
+  border: 1px solid lightgray;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.33);
+  background: white;
 }
 
-.CharacterSheet .ant-input-number input, .CharacterSheet h4{
-    text-align: center;
+.CharacterSheet .ant-input-number input {
+  text-align: center;
+}
+
+.CharacterSheet .ant-collapse-header {
+  padding: 8px 16px !important;
+  align-items: center !important;
 }

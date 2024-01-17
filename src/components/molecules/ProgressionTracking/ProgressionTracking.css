@@ -1,3 +1,4 @@
-.ProgressionTracking h4 {
-    margin: 8px 0;
+.ProgressionTracking h4, .ProgressionTracking p {
+    margin: 0;
+    text-align: center;
 }

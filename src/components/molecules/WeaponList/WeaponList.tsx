@@ -53,7 +53,7 @@ const WeaponList: React.FC<IProps> = ({ weapons, onWeaponAdd, onWeaponsUpdate })
 
     return (
         <div className="WeaponList">
-            <Button type="primary" onClick={onWeaponAdd}>Ajouter une arme</Button>
+            <Button type="primary" onClick={onWeaponAdd}>Ajouter une attaque</Button>
             <Row gutter={16}>
                 {weapons.map(weapon => (
                     <Col xs={24} sm={12}>
