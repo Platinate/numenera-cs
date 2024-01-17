@@ -16,7 +16,6 @@ function App() {
 
   useEffect(() => {
     const lastSaved = localStorage.getItem("character");
-    console.log(lastSaved);
     if (lastSaved) setCharacter(JSON.parse(lastSaved));
   }, [character.id]);
 
