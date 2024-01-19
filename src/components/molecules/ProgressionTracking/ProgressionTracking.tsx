@@ -1,7 +1,7 @@
 import React from "react";
 
 import "./ProgressionTracking.css";
-import { Col, InputNumber, Row } from "antd";
+import { Col, Row } from "antd";
 import Counter from "../../atoms/Counter/Counter";
 
 interface IProps {

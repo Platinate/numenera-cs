@@ -1,6 +1,6 @@
 import React from "react";
 import ICharacter from "../../../models/character";
-import { Row, Col, InputNumber, Select } from "antd";
+import { Row, Col, Select } from "antd";
 import WeaponList from "../WeaponList/WeaponList";
 import IWeapon from "../../../models/weapon";
 
@@ -14,41 +14,66 @@ interface IProps {
   onRestChange: (name: string, value: any) => void;
 }
 
-const RECOVERY_OPTIONS: { label: string, value: string }[] = [
+const RECOVERY_OPTIONS: { label: string; value: string }[] = [
   { label: "Aucun repos", value: "0" },
   { label: "1 action", value: "1" },
   { label: "10 mins", value: "2" },
   { label: "1 heure", value: "3" },
   { label: "10 heures", value: "4" },
-]
+];
 
-const STATUS_OPTIONS: { label: string, value: string }[] = [
+const STATUS_OPTIONS: { label: string; value: string }[] = [
   { label: "Pleine forme", value: "0" },
   { label: "Affaibli", value: "1" },
-  { label: "Neutralisé", value: "2" }
-]
+  { label: "Neutralisé", value: "2" },
+];
 
 const CombatTracking: React.FC<IProps> = ({
   character,
   handleOnWeaponAdd,
   handleOnWeaponsUpdate,
-  onRestChange
+  onRestChange,
 }) => {
   return (
     <div className="CombatTracking">
       <Row align={"middle"} gutter={[16, 16]}>
         <Col xs={24} md={8}>
           <h4 style={{ margin: 0, textAlign: "center" }}>ARMURE</h4>
-          <Counter initialValue={character.armor} min={0} onChange={(v) => onRestChange("armor", v)} />
+          <Counter
+            initialValue={character.armor}
+            min={0}
+            onChange={(v) => onRestChange("armor", v)}
+          />
         </Col>
         <Col xs={24} md={12}>
           <h4 style={{ margin: 0, textAlign: "center" }}>REPOS</h4>
-          <div style={{ display: "grid", gridTemplateColumns: '20% 33% 43%', gap: 5, alignItems:'center' }}>
-            <span style={{textAlign:'center', border: '2px solid lightgray', borderRadius: '5px', padding: 4, fontWeight: 'bold'}}>1D6 +</span>
-            <Counter initialValue={character.recoveryBonus} min={0} onChange={(v) => onRestChange("recoveryBonus", v)} />
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "20% 33% 43%",
+              gap: 5,
+              alignItems: "center",
+            }}
+          >
+            <span
+              style={{
+                textAlign: "center",
+                border: "2px solid lightgray",
+                borderRadius: "5px",
+                padding: 4,
+                fontWeight: "bold",
+              }}
+            >
+              1D6 +
+            </span>
+            <Counter
+              initialValue={character.recoveryBonus}
+              min={0}
+              onChange={(v) => onRestChange("recoveryBonus", v)}
+            />
             <Select
               defaultValue="0"
-              style={{width: '100%'}}
+              style={{ width: "100%" }}
               options={RECOVERY_OPTIONS}
               onChange={(v) => onRestChange("recovery", v)}
               value={character.recovery}
@@ -59,7 +84,7 @@ const CombatTracking: React.FC<IProps> = ({
           <h4 style={{ margin: 0, textAlign: "center" }}>DEGATS</h4>
           <Select
             defaultValue="0"
-            style={{width: '100%'}}
+            style={{ width: "100%" }}
             options={STATUS_OPTIONS}
             onChange={(v) => onRestChange("status", v)}
             value={character.status}
