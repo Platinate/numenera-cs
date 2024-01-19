@@ -16,3 +16,7 @@
     border-radius: 5px;
     box-shadow: 5px 5px 5px rgba(0,0,0,0.33);
 }
+
+.App .ant-btn {
+    min-height: 35px;
+}
