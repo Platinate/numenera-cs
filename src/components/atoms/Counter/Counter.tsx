@@ -38,9 +38,9 @@ const Counter: React.FC<IProps> = ({ onChange, initialValue, min, max }) => {
 
   return (
     <div className="Counter">
-      <Button type="primary" onClick={handleOnMinusButtonClick}>-</Button>
+      <Button className="counter__button counter__button--minus" type="primary" onClick={handleOnMinusButtonClick}>-</Button>
       <Input readOnly value={state} defaultValue={0}/>
-      <Button type="primary" onClick={handleOnPlusButtonClick}>+</Button>
+      <Button className="counter__button counter__button--plus" type="primary" onClick={handleOnPlusButtonClick}>+</Button>
     </div>
   );
 };

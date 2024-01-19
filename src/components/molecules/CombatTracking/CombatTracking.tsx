@@ -5,6 +5,7 @@ import WeaponList from "../WeaponList/WeaponList";
 import IWeapon from "../../../models/weapon";
 
 import "./CombatTracking.css";
+import Counter from "../../atoms/Counter/Counter";
 
 interface IProps {
   character: ICharacter;
@@ -38,13 +39,13 @@ const CombatTracking: React.FC<IProps> = ({
       <Row align={"middle"} gutter={[16, 16]}>
         <Col xs={24} md={8}>
           <h4 style={{ margin: 0, textAlign: "center" }}>ARMURE</h4>
-          <InputNumber placeholder="Armure" defaultValue={0} name="armor" style={{ width: '100%' }} value={character.armor} onChange={(v) => onRestChange("armor", v)} />
+          <Counter initialValue={character.armor} min={0} onChange={(v) => onRestChange("armor", v)} />
         </Col>
         <Col xs={24} md={12}>
           <h4 style={{ margin: 0, textAlign: "center" }}>REPOS</h4>
           <div style={{ display: "grid", gridTemplateColumns: '20% 33% 43%', gap: 5, alignItems:'center' }}>
             <span style={{textAlign:'center', border: '2px solid lightgray', borderRadius: '5px', padding: 4, fontWeight: 'bold'}}>1D6 +</span>
-            <InputNumber placeholder="Bonus" style={{width: '100%'}} name="recoveryBonus" value={character.recoveryBonus} onChange={(v) => onRestChange("recoveryBonus", v)} />
+            <Counter initialValue={character.recoveryBonus} min={0} onChange={(v) => onRestChange("recoveryBonus", v)} />
             <Select
               defaultValue="0"
               style={{width: '100%'}}
