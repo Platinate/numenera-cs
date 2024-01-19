@@ -40,21 +40,11 @@ const { Panel } = Collapse;
 interface IProps {
   character: ICharacter;
   onValueChange: (name: string, value: any) => void;
-  onSkillListChange: (newList: ISkill[]) => void;
-  onAbilityListChange: (newList: IAbility[]) => void;
-  onWeaponListChange: (newList: IWeapon[]) => void;
-  onCypherListChange: (newList: ICypher[]) => void;
-  onArtifactListChange: (newList: IArtifact[]) => void;
 }
 
 const CharacterSheet: React.FC<IProps> = ({
   character,
-  onValueChange,
-  onSkillListChange,
-  onAbilityListChange,
-  onWeaponListChange,
-  onCypherListChange,
-  onArtifactListChange,
+  onValueChange
 }) => {
   const handleOnChange = (evt: any) => {
     onValueChange(evt.target.name, evt.target.value);
@@ -67,47 +57,47 @@ const CharacterSheet: React.FC<IProps> = ({
 
   const handleOnSkillAdd = () => {
     character.skills.push(new Skill());
-    onSkillListChange(character.skills);
+    onValueChange("skills", character.skills);
   };
 
   const handleOnSkillsUpdate = (skills: ISkill[]) => {
-    onSkillListChange(skills);
+    onValueChange("skills", skills);
   };
 
   const handleOnAbilityAdd = () => {
     character.abilities.push(new Ability());
-    onAbilityListChange(character.abilities);
+    onValueChange("abilities", character.abilities);
   };
 
   const handleOnAbilitiesUpdate = (abilities: IAbility[]) => {
-    onAbilityListChange(abilities);
+    onValueChange("abilities", abilities);
   };
 
   const handleOnWeaponAdd = () => {
     character.weapons.push(new Weapon());
-    onWeaponListChange(character.weapons);
+    onValueChange("weapons", character.weapons);
   };
 
   const handleOnWeaponUpdate = (weapons: IWeapon[]) => {
-    onWeaponListChange(weapons);
+    onValueChange("weapons", weapons);
   };
 
   const handleOnCypherAdd = () => {
     character.cyphers.push(new Cypher());
-    onCypherListChange(character.cyphers);
+    onValueChange("cyphers", character.cyphers);
   };
 
   const handleOnCypherUpdate = (cyphers: ICypher[]) => {
-    onCypherListChange(cyphers);
+    onValueChange("cyphers", cyphers);
   };
 
   const handleOnArtifactAdd = () => {
     character.artifacts.push(new Artifact());
-    onArtifactListChange(character.artifacts);
+    onValueChange("artifacts", character.artifacts);
   };
 
   const handleOnArtifactUpdate = (artifacts: IArtifact[]) => {
-    onArtifactListChange(artifacts);
+    onValueChange("artifacts", artifacts);
   };
 
   return (
@@ -159,28 +149,37 @@ const CharacterSheet: React.FC<IProps> = ({
         </Col>
       </Row>
       <Divider />
-      <Row gutter={[16,16]}>
+      <Row gutter={[16, 16]}>
         <Col xs={24} sm={8}>
           <div className="character-sheet__counter">
             <h4 style={{ textAlign: "center" }}>RANG</h4>
-            <Counter onChange={(v) => onValueChange("tier", v)} initialValue={character.tier}/>
+            <Counter
+              onChange={(v) => onValueChange("tier", v)}
+              initialValue={character.tier}
+            />
           </div>
         </Col>
         <Col xs={24} sm={8}>
           <div className="character-sheet__counter">
             <h4 style={{ textAlign: "center" }}>EFFORT</h4>
-            <Counter onChange={(v) => onValueChange("effort", v)} initialValue={character.effort}/>
+            <Counter
+              onChange={(v) => onValueChange("effort", v)}
+              initialValue={character.effort}
+            />
           </div>
         </Col>
         <Col xs={24} sm={8}>
           <div className="character-sheet__counter">
             <h4 style={{ textAlign: "center" }}>XP</h4>
-            <Counter onChange={(v) => onValueChange("xp", v)} initialValue={character.xp}/>
+            <Counter
+              onChange={(v) => onValueChange("xp", v)}
+              initialValue={character.xp}
+            />
           </div>
         </Col>
       </Row>
       <Divider />
-      <Row gutter={[16,16]} align="middle">
+      <Row gutter={[16, 16]} align="middle">
         <Col xs={24} sm={12}>
           <Pool
             name="PUISSANCE"
@@ -209,7 +208,7 @@ const CharacterSheet: React.FC<IProps> = ({
             edge={character.speedPoolEdge}
           />
         </Col>
-        <Col xs={24} sm={{span: 12, offset: 6}}>
+        <Col xs={24} sm={{ span: 12, offset: 6 }}>
           <Pool
             name="INTELLECT"
             onMaxPoolChange={(v) =>

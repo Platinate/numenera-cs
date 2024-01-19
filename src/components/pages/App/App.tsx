@@ -2,13 +2,8 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import ICharacter, { Character } from "../../../models/character";
 import CharacterSheet from "../../organisms/CharacterSheet/CharacterSheet";
-import ISkill from "../../../models/skill";
-import IAbility from "../../../models/ability";
 import { Button, Col, Row } from "antd";
 import JsonFileLoader from "../../atoms/JsonFileLoader/JsonFileLoader";
-import IWeapon from "../../../models/weapon";
-import ICypher from "../../../models/cypher";
-import IArtifact from "../../../models/artifact";
 import logo from "../../../assets/images/R-white.png";
 
 function App() {
@@ -21,48 +16,7 @@ function App() {
 
   const handleOnValueChange = (name: string, value: any) => {
     let c = character;
-    console.log(name, value);
     c = { ...c, [name]: value };
-    c.id = Math.ceil(Math.random() * 100);
-    setCharacter(c);
-    localStorage.setItem("character", JSON.stringify(c));
-  };
-
-  const handleOnSkillListChange = (skills: ISkill[]) => {
-    let c = character;
-    c = { ...c, skills: skills };
-    c.id = Math.ceil(Math.random() * 100);
-    setCharacter(c);
-    localStorage.setItem("character", JSON.stringify(c));
-  };
-
-  const handleOnAbilityListChange = (abilities: IAbility[]) => {
-    let c = character;
-    c = { ...c, abilities: abilities };
-    c.id = Math.ceil(Math.random() * 100);
-    setCharacter(c);
-    localStorage.setItem("character", JSON.stringify(c));
-  };
-
-  const handleOnWeaponListChange = (weapons: IWeapon[]) => {
-    let c = character;
-    c = { ...c, weapons: weapons };
-    c.id = Math.ceil(Math.random() * 100);
-    setCharacter(c);
-    localStorage.setItem("character", JSON.stringify(c));
-  };
-
-  const handleOnCypherListChange = (cyphers: ICypher[]) => {
-    let c = character;
-    c = { ...c, cyphers: cyphers };
-    c.id = Math.ceil(Math.random() * 100);
-    setCharacter(c);
-    localStorage.setItem("character", JSON.stringify(c));
-  };
-
-  const handleOnArtifactListChange = (artifacts: IArtifact[]) => {
-    let c = character;
-    c = { ...c, artifacts: artifacts };
     c.id = Math.ceil(Math.random() * 100);
     setCharacter(c);
     localStorage.setItem("character", JSON.stringify(c));
@@ -74,7 +28,7 @@ function App() {
     )}`;
     const link = document.createElement("a");
     link.href = jsonString;
-    link.download = "data.json";
+    link.download = `personnage_${Date.now().toString()}.json`;
 
     link.click();
   };
@@ -114,11 +68,6 @@ function App() {
           <CharacterSheet
             character={character}
             onValueChange={handleOnValueChange}
-            onSkillListChange={handleOnSkillListChange}
-            onAbilityListChange={handleOnAbilityListChange}
-            onWeaponListChange={handleOnWeaponListChange}
-            onCypherListChange={handleOnCypherListChange}
-            onArtifactListChange={handleOnArtifactListChange}
           />
         </Col>
       </Row>
