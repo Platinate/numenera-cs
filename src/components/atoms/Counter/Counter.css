@@ -4,11 +4,13 @@
     gap: 4px;
     width: 100%;
     justify-content: center;
+    align-items: center;
 }
 
 .Counter .ant-input{
     width: 100%;
     margin: 0;
+    padding: 0;
     text-align: center;
     font-size: 1.2rem;
     min-height: 35px;
