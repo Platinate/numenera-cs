@@ -46,39 +46,41 @@ const CombatTracking: React.FC<IProps> = ({
           />
         </Col>
         <Col xs={24} md={12}>
-          <h4 style={{ margin: 0, textAlign: "center" }}>REPOS</h4>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "20% 33% 43%",
-              gap: 5,
-              alignItems: "center",
-            }}
-          >
-            <span
-              style={{
-                textAlign: "center",
-                border: "2px solid lightgray",
-                borderRadius: "5px",
-                padding: 4,
-                fontWeight: "bold",
-              }}
-            >
-              1D6 +
-            </span>
-            <Counter
-              initialValue={character.recoveryBonus}
-              min={0}
-              onChange={(v) => onRestChange("recoveryBonus", v)}
-            />
-            <Select
-              defaultValue="0"
-              style={{ width: "100%" }}
-              options={RECOVERY_OPTIONS}
-              onChange={(v) => onRestChange("recovery", v)}
-              value={character.recovery}
-            />
-          </div>
+          <Row gutter={[16,16]} align="middle">
+            <Col xs={24}>
+              <h4 style={{ margin: 0, textAlign: "center" }}>REPOS</h4>
+            </Col>
+            <Col xs={12}>
+              <div
+                style={{
+                  textAlign: "center",
+                  border: "2px solid lightgray",
+                  borderRadius: "5px",
+                  padding: 4,
+                  fontWeight: "bold",
+                  width: "100%"
+                }}
+              >
+                1D6 +
+              </div>
+            </Col>
+            <Col xs={12}>
+              <Counter
+                initialValue={character.recoveryBonus}
+                min={0}
+                onChange={(v) => onRestChange("recoveryBonus", v)}
+              />
+            </Col>
+            <Col xs={24}>
+              <Select
+                defaultValue="0"
+                style={{ width: "100%" }}
+                options={RECOVERY_OPTIONS}
+                onChange={(v) => onRestChange("recovery", v)}
+                value={character.recovery}
+              />
+            </Col>
+          </Row>
         </Col>
         <Col xs={24} md={4}>
           <h4 style={{ margin: 0, textAlign: "center" }}>DEGATS</h4>
