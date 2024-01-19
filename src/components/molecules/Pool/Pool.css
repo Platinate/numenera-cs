@@ -1,10 +1,11 @@
 .Pool {
   display: grid;
-  gap: 5px;
+  gap: 8px;
+  justify-content: center;
   grid-template-areas: "t t" "a a" "b c";
   grid-template-columns: 50% 50%;
   border: 2px solid lightgray;
-  padding: 8px;
+  padding: 16px;
   border-radius: 5px;
 }
 

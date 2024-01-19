@@ -1,0 +1,26 @@
+.Counter {
+    display: grid;
+    grid-template-columns: 40px 1fr 40px;
+    gap: 8px;
+    width: 100%;
+    justify-content: center;
+}
+
+.Counter .ant-input{
+    width: 100%;
+    margin: 0;
+    text-align: center;
+    font-size: 1.2rem;
+    min-height: 40px;
+}
+
+.Counter .ant-btn{
+    width: 40px;
+    height: 40px;
+    margin: 0;
+    font-weight: bold;
+    font-size: 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -32,6 +32,7 @@ import CombatTracking from "../../molecules/CombatTracking/CombatTracking";
 import CypherList from "../../molecules/CypherList/CypherList";
 import SkillList from "../../molecules/SkillList/SkillList";
 import { FOCUSES, TYPES } from "../../../constants/constants";
+import Counter from "../../atoms/Counter/Counter";
 
 const { TabPane } = Tabs;
 const { Panel } = Collapse;
@@ -158,50 +159,29 @@ const CharacterSheet: React.FC<IProps> = ({
         </Col>
       </Row>
       <Divider />
-      <Row gutter={16}>
-        <Col xs={8}>
+      <Row gutter={[16,16]}>
+        <Col xs={24} sm={8}>
           <div className="character-sheet__counter">
             <h4 style={{ textAlign: "center" }}>RANG</h4>
-            <InputNumber
-              style={{ width: "100%" }}
-              value={character.tier}
-              defaultValue={0}
-              min={0}
-              name="tier"
-              onChange={(v) => onValueChange("tier", v)}
-            />
+            <Counter onChange={(v) => onValueChange("tier", v)} initialValue={character.tier}/>
           </div>
         </Col>
-        <Col xs={8}>
+        <Col xs={24} sm={8}>
           <div className="character-sheet__counter">
             <h4 style={{ textAlign: "center" }}>EFFORT</h4>
-            <InputNumber
-              style={{ width: "100%" }}
-              value={character.effort}
-              defaultValue={0}
-              min={0}
-              name="effort"
-              onChange={(v) => onValueChange("effort", v)}
-            />
+            <Counter onChange={(v) => onValueChange("effort", v)} initialValue={character.effort}/>
           </div>
         </Col>
-        <Col xs={8}>
+        <Col xs={24} sm={8}>
           <div className="character-sheet__counter">
             <h4 style={{ textAlign: "center" }}>XP</h4>
-            <InputNumber
-              style={{ width: "100%" }}
-              value={character.xp}
-              defaultValue={0}
-              min={0}
-              name="xp"
-              onChange={(v) => onValueChange("xp", v)}
-            />
+            <Counter onChange={(v) => onValueChange("xp", v)} initialValue={character.xp}/>
           </div>
         </Col>
       </Row>
       <Divider />
-      <Row gutter={16} align="middle">
-        <Col xs={24} sm={8}>
+      <Row gutter={[16,16]} align="middle">
+        <Col xs={24} sm={12}>
           <Pool
             name="PUISSANCE"
             onMaxPoolChange={(v) => handleOnPoolChange("mightPoolMaximum", v)}
@@ -215,7 +195,7 @@ const CharacterSheet: React.FC<IProps> = ({
             edge={character.mightPoolEdge}
           />
         </Col>
-        <Col xs={24} sm={8}>
+        <Col xs={24} sm={12}>
           <Pool
             name="CÉLÉRITÉ"
             onMaxPoolChange={(v) => handleOnPoolChange("speedPoolMaximum", v)}
@@ -229,7 +209,7 @@ const CharacterSheet: React.FC<IProps> = ({
             edge={character.speedPoolEdge}
           />
         </Col>
-        <Col xs={24} sm={8}>
+        <Col xs={24} sm={{span: 12, offset: 6}}>
           <Pool
             name="INTELLECT"
             onMaxPoolChange={(v) =>

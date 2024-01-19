@@ -2,6 +2,7 @@ import React from "react";
 
 import "./Pool.css";
 import { InputNumber } from "antd";
+import Counter from "../../atoms/Counter/Counter";
 
 interface IProps {
   name: string;
@@ -33,32 +34,29 @@ const Pool: React.FC<IProps> = ({
     <div className="Pool">
       <h2 className="pool__title">{name}</h2>
       <div className="pool__current">
-        <InputNumber
-          style={InputNumberStyle}
-          onChange={(v) => onCurrentPoolChange(v)}
-          value={current}
+        <Counter
+          initialValue={current}
           max={max}
           min={min}
+          onChange={(v) => onCurrentPoolChange(v)}
         />
       </div>
       <div className="pool__edge">
         <div className="pool_counter">
-          <InputNumber
-            style={InputNumberStyle}
-            onChange={(v) => onEdgePoolChange(v)}
-            value={edge}
+          <Counter
+            initialValue={edge}
             min={0}
+            onChange={(v) => onEdgePoolChange(v)}
           />
         </div>
         <h4>AVANTAGE</h4>
       </div>
       <div className="pool__max">
         <div className="pool_counter">
-          <InputNumber
-            style={InputNumberStyle}
-            onChange={(v) => onMaxPoolChange(v)}
-            value={max}
+          <Counter
+            initialValue={max}
             min={0}
+            onChange={(v) => onMaxPoolChange(v)}
           />
         </div>
         <h4>MAX</h4>
