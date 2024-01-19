@@ -21,6 +21,7 @@ function App() {
 
   const handleOnValueChange = (name: string, value: any) => {
     let c = character;
+    console.log(name, value);
     c = { ...c, [name]: value };
     c.id = Math.ceil(Math.random() * 100);
     setCharacter(c);

@@ -1,6 +1,15 @@
 import React from "react";
 import ICharacter from "../../../models/character";
-import { Col, Collapse, Divider, Input, InputNumber, Row, Tabs } from "antd";
+import {
+  Col,
+  Collapse,
+  Divider,
+  Input,
+  InputNumber,
+  Row,
+  Select,
+  Tabs,
+} from "antd";
 import Pool from "../../molecules/Pool/Pool";
 import ISkill, { Skill } from "../../../models/skill";
 import {
@@ -22,6 +31,7 @@ import AbilityList from "../../molecules/AbilityList/AbilityList";
 import CombatTracking from "../../molecules/CombatTracking/CombatTracking";
 import CypherList from "../../molecules/CypherList/CypherList";
 import SkillList from "../../molecules/SkillList/SkillList";
+import { FOCUSES, TYPES } from "../../../constants/constants";
 
 const { TabPane } = Tabs;
 const { Panel } = Collapse;
@@ -43,7 +53,7 @@ const CharacterSheet: React.FC<IProps> = ({
   onAbilityListChange,
   onWeaponListChange,
   onCypherListChange,
-  onArtifactListChange
+  onArtifactListChange,
 }) => {
   const handleOnChange = (evt: any) => {
     onValueChange(evt.target.name, evt.target.value);
@@ -112,10 +122,10 @@ const CharacterSheet: React.FC<IProps> = ({
         </Col>
       </Row>
       <Row gutter={16} align="middle">
-        <Col xs={6}>
-          <p style={{ textAlign: "center" }}>EST UN</p>
+        <Col xs={6} md={3}>
+          <p>EST UN</p>
         </Col>
-        <Col xs={9}>
+        <Col xs={9} md={12}>
           <Input
             name="descriptor"
             value={character.descriptor}
@@ -124,24 +134,26 @@ const CharacterSheet: React.FC<IProps> = ({
           />
         </Col>
         <Col xs={9}>
-          <Input
-            name="type"
+          <Select
             value={character.type}
             placeholder="Type"
-            onChange={handleOnChange}
+            style={{ width: "100%" }}
+            onChange={(v) => onValueChange("type", v)}
+            options={TYPES.map((f) => ({ value: f.key, label: f.name }))}
           />
         </Col>
       </Row>
       <Row gutter={16} align="middle">
-        <Col xs={4}>
-          <p style={{ textAlign: "center" }}>QUI</p>
+        <Col xs={4} md={2}>
+          <p>QUI</p>
         </Col>
-        <Col xs={20}>
-          <Input
-            name="focus"
+        <Col xs={20} md={22}>
+          <Select
             value={character.focus}
             placeholder="Focus"
-            onChange={handleOnChange}
+            style={{ width: "100%" }}
+            onChange={(v) => onValueChange("focus", v)}
+            options={FOCUSES.map((f) => ({ value: f.key, label: f.name }))}
           />
         </Col>
       </Row>
@@ -158,7 +170,6 @@ const CharacterSheet: React.FC<IProps> = ({
               name="tier"
               onChange={(v) => onValueChange("tier", v)}
             />
-
           </div>
         </Col>
         <Col xs={8}>
@@ -171,8 +182,8 @@ const CharacterSheet: React.FC<IProps> = ({
               min={0}
               name="effort"
               onChange={(v) => onValueChange("effort", v)}
-            /></div>
-
+            />
+          </div>
         </Col>
         <Col xs={8}>
           <div className="character-sheet__counter">
@@ -184,8 +195,8 @@ const CharacterSheet: React.FC<IProps> = ({
               min={0}
               name="xp"
               onChange={(v) => onValueChange("xp", v)}
-            /></div>
-
+            />
+          </div>
         </Col>
       </Row>
       <Divider />
@@ -282,14 +293,29 @@ const CharacterSheet: React.FC<IProps> = ({
                 onChange={handleOnChange}
               />
             </Panel>
-            <Panel key="2" style={{ padding: 0, margin: 0 }} header={
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <span>Cyphers</span>
-                <div>
-                  <span style={{ marginRight: 8 }}>Limite : </span>
-                  <InputNumber name="cypherLimit" value={character.cypherLimit} onChange={(v) => onValueChange("cypherLimit", v!)} />
+            <Panel
+              key="2"
+              style={{ padding: 0, margin: 0 }}
+              header={
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                  }}
+                >
+                  <span>Cyphers</span>
+                  <div>
+                    <span style={{ marginRight: 8 }}>Limite : </span>
+                    <InputNumber
+                      name="cypherLimit"
+                      value={character.cypherLimit}
+                      onChange={(v) => onValueChange("cypherLimit", v!)}
+                    />
+                  </div>
                 </div>
-              </div>}>
+              }
+            >
               <CypherList
                 cypherLimit={character.cypherLimit}
                 cyphers={character.cyphers}
@@ -313,7 +339,14 @@ const CharacterSheet: React.FC<IProps> = ({
           icon={<RiseOutlined />}
           closable={false}
         >
-          <ProgressionTracking onValueChange={onValueChange} otherProgression={character.otherProgression} abilityProgression={character.abilityProgression} poolProgression={character.poolProgression} skillProgression={character.skillProgression} effortProgression={character.effortProgression} />
+          <ProgressionTracking
+            onValueChange={onValueChange}
+            otherProgression={character.otherProgression}
+            abilityProgression={character.abilityProgression}
+            poolProgression={character.poolProgression}
+            skillProgression={character.skillProgression}
+            effortProgression={character.effortProgression}
+          />
         </TabPane>
         <TabPane tab="Notes" key="6" icon={<FormOutlined />} closable={false}>
           <Input.TextArea

@@ -9,11 +9,11 @@ export default interface ICharacter {
 
     id:number;
 
-    focus: string;
+    focus?: number;
     name: string;
     descriptor: string;
     stuff:string;
-    type: string;
+    type?: number;
     tier: number;
     effort: number;
     xp: number;
@@ -59,8 +59,8 @@ export default interface ICharacter {
 export class Character implements ICharacter {
     id:number;
     descriptor: string;
-    type: string;
-    focus:string;
+    type?: number;
+    focus?:number;
     stuff:string;
     tier: number;
     effort: number;
@@ -107,8 +107,6 @@ export class Character implements ICharacter {
     constructor() {
         this.id = 0;
         this.descriptor = '';
-        this.focus = '';
-        this.type = '';
         this.stuff = '';
         this.tier = 0;
         this.effort = 0;
