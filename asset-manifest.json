@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/numenera-cs/static/css/main.84d61319.css",
-    "main.js": "/numenera-cs/static/js/main.b6d9521d.js",
+    "main.css": "/numenera-cs/static/css/main.a4d79f6e.css",
+    "main.js": "/numenera-cs/static/js/main.74af7858.js",
     "static/js/787.2239354e.chunk.js": "/numenera-cs/static/js/787.2239354e.chunk.js",
     "static/media/R-white.png": "/numenera-cs/static/media/R-white.724ea986c6723362281b.png",
     "index.html": "/numenera-cs/index.html",
-    "main.84d61319.css.map": "/numenera-cs/static/css/main.84d61319.css.map",
-    "main.b6d9521d.js.map": "/numenera-cs/static/js/main.b6d9521d.js.map",
+    "main.a4d79f6e.css.map": "/numenera-cs/static/css/main.a4d79f6e.css.map",
+    "main.74af7858.js.map": "/numenera-cs/static/js/main.74af7858.js.map",
     "787.2239354e.chunk.js.map": "/numenera-cs/static/js/787.2239354e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.84d61319.css",
-    "static/js/main.b6d9521d.js"
+    "static/css/main.a4d79f6e.css",
+    "static/js/main.74af7858.js"
   ]
 }
